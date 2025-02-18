@@ -96,9 +96,60 @@ function generateHero() {
     console.log("Hero section - LOADED!");
 }
 
-// Ensure all HTML elements have loaded before running the functions
+// Subroutine for generating the main content of the page
+function generateMainContent() {
+    let main = document.createElement("main"); // Create <main> inside <body>
+    main.setAttribute("id", "main-content");   // Set an ID for styling later
+
+    let content = document.createElement("section"); // Create a <section> for content
+
+    // Identify the current page and generate content accordingly
+    let currentPage = window.location.pathname.split("/").pop();
+
+    if (currentPage === "index.html" || currentPage === "") {
+        content.innerHTML = `
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio! I am passionate about tech, programming and AI.</p>
+        `;
+    } else if (currentPage === "projects.html") {
+        content.innerHTML = `
+            <h2>My Projects</h2>
+            <p>Here are some of my latest projects and coding experiments.</p>
+        `;
+    } else if (currentPage === "about.html") {
+        content.innerHTML = `
+            <h2>Who Am I?</h2>
+            <p>A tech enthusiast exploring cybersecurity and game development.</p>
+        `;
+    } else if (currentPage === "contact.html") {
+        content.innerHTML = `
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me for collaborations or discussions.</p>
+        `;
+    } else {
+        content.innerHTML = `
+            <h2>Page Not Found</h2>
+            <p>Oops! This page doesn't seem to exist.</p>
+        `;
+    }
+
+    main.appendChild(content); // Append content to <main>
+
+    // Insert main content below the hero section
+    let hero = document.querySelector("#hero");
+    if (hero) {
+        hero.after(main);
+    } else {
+        document.body.appendChild(main);
+    }
+
+    console.log("Main content - LOADED!");
+}
+
+// Ensure all HTML loads before the sub routines run.
 document.addEventListener("DOMContentLoaded", function () {
     generateHead();
     generateNav();
-    generateHero(); // Call hero function here
+    generateHero();
+    generateMainContent(); 
 });
