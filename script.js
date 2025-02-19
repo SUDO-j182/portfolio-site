@@ -12,12 +12,14 @@ function generateHead() {
 
     // Get the current page filename
     let currentPage = window.location.pathname.split("/").pop();
-    let title = document.createElement("title"); // Creating and setting the <title> element
-    title.textContent = titles[currentPage] || "My Portfolio"; // Set default page title if not found
+    
+    // Create and set the <title> element dynamically
+    let title = document.createElement("title");
+    title.textContent = titles[currentPage] || "My Portfolio"; // Default title if not found
     head.appendChild(title); // Append <title> to <head>
 
     // Setting the meta tags
-    let metaCharset = document.createElement("meta"); // Creating the <meta> tag.
+    let metaCharset = document.createElement("meta");
     metaCharset.setAttribute("charset", "UTF-8");
     head.appendChild(metaCharset);
 
@@ -39,7 +41,7 @@ function generateHead() {
 function generateNav() {
     let nav = document.createElement("nav"); // Create <nav> element
     let menu = document.createElement("ul"); // Create <ul> tags
-    
+
     // Define pages and their file names
     let pages = [
         { name: "Home", file: "index.html" },
@@ -48,31 +50,24 @@ function generateNav() {
         { name: "Contact", file: "contact.html" }
     ];
 
-    // Loop through all pages and create links
+    // Loop through all pages and create navigation links
     pages.forEach(page => {
-        let li = document.createElement("li"); // Creating <li> tags
-        let a = document.createElement("a");   // Creating <a> tags
-        a.textContent = page.name;             // Set the link text
-        a.href = page.file;                    // Set the link URL
-
-        // Adding event listener for dynamic loading
-        a.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent defualt link behavior
-            loadContent(page.file); // Load content dynamically
-            history.pushState({ page: page.file }, "", page.file); // Update URL without refresh
-        });
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.textContent = page.name;
+        a.href = page.file;
 
         // Highlight active page based on URL
         if (window.location.pathname.includes(page.file)) {
             a.classList.add("active");
         }
 
-        li.appendChild(a);            // Append <a> to <li>
-        menu.appendChild(li);         // Append <li> to <ul>
+        li.appendChild(a);
+        menu.appendChild(li);
     });
 
-    nav.appendChild(menu);            // Append <ul> to <nav>
-    document.body.prepend(nav);       // Add <nav> to the top of <body>
+    nav.appendChild(menu); // Append <ul> to <nav>
+    document.body.prepend(nav); // Add <nav> to the top of <body>
 
     console.log("Nav menu - LOADED!");
 }
@@ -80,65 +75,137 @@ function generateNav() {
 // Subroutine for generating the hero section dynamically
 function generateHero() {
     let hero = document.createElement("section"); // Create a <section> for the hero
-    hero.setAttribute("id", "hero"); // Set an ID for styling later on
+    hero.setAttribute("id", "hero"); // Set an ID for styling
 
-    let title = document.createElement("h1"); // Create the main title
-    title.textContent = "Welcome to My Portfolio"; // Placeholder text
+// Create terminal window container
+let terminal = document.createElement("div"); // Create a <div> for the terminal
+terminal.setAttribute("id", "terminal"); // Set an ID for styling
 
-    let tagline = document.createElement("p"); // Create a tagline
-    tagline.textContent = "Making an Entrance to Tech.";
+// Create terminal title bar
+let titleBar = document.createElement("div");
+titleBar.setAttribute("id", "terminal-title"); 
+titleBar.innerHTML = `
+    <span class="terminal-btn close"></span>
+    <span class="terminal-btn minimize"></span>
+    <span class="terminal-btn maximize"></span>
+    <span class="terminal-title-text">~/portfolio</span>
+`;
 
-    // Append elements to the hero section
-    hero.appendChild(title);
-    hero.appendChild(tagline);
+// Create terminal body for welcome message
+let terminalBody = document.createElement("div"); 
+terminalBody.setAttribute("id", "terminal-body");
 
-    // Insert hero section right after the nav generation
-    let nav = document.querySelector("nav"); // Find the <nav>
+let terminalText = document.createElement("pre"); // Simulating CLI output
+terminalText.setAttribute("id", "terminal-text");
+terminalText.innerHTML = `
+Welcome to My Portfolio
+---------------------------
+> Ex warehouse professional, transitioning into tech.
+> Passionate about programming, AI and personal development.
+> Type 'help' for more information.
+`;
+
+// Create terminal input field
+let terminalInput = document.createElement("input");
+terminalInput.setAttribute("type", "text");
+terminalInput.setAttribute("id", "terminal-input");
+terminalInput.setAttribute("placeholder", "Type a command...");
+terminalInput.setAttribute("autocomplete", "off");
+terminalBody.appendChild(terminalInput);
+
+// Append elements together
+terminalBody.appendChild(terminalText);
+terminalBody.appendChild(terminalInput);
+terminal.appendChild(titleBar);
+terminal.appendChild(terminalBody);
+hero.appendChild(terminal);
+
+
+console.log("Hero section terminal window - LOADED!");
+
+    // Insert hero section below the navigation
+    let nav = document.querySelector("nav");
     if (nav) {
         nav.after(hero); // Place hero below nav bar
     } else { 
-        document.body.prepend(hero); // If no nav, add to top of body
+        document.body.prepend(hero); // If no nav, add to the top of body
     }
 
+    terminalInput.addEventListener("keydown", handleTerminalCommand);
+
     console.log("Hero section - LOADED!");
+}
+
+// Subroutine for handling terminal commands
+function handleTerminalCommand(event) {
+    if (event.key === "Enter") {
+        let inputField = event.target;
+        let command = inputField.value.trim().toLowerCase(); // Get user input 
+        let terminalText = document.getElementById("terminal-text");
+
+        // Clear input field after submission
+        inputField.value = "";
+
+        // Handle different commands
+        if (command === "help") {
+            terminalText.innerHTML +=  `
+            > Available commands:
+            > help - Show available commands
+            > about - Learn about me
+            > clear - Clear terminal output
+            `;
+        } else if (command === "about") {
+            terminalText.innerHTML +=  `
+            > I am a tech enthusiast exploring programming, AI, and cybersecurity.
+            > Currently transitioning into tech from warehousing.
+            `;
+        } else if (command === "clear") {
+            terminalText.innerHTML = "Welcome to My Portfolio\n------------------------------";
+        } else {
+            terminalText.innerHTML += `
+> Unknown command: "${command}". Type 'help' for a list of commands.
+`;
+        }
+
+        // Ensure terminal scrolls to the latest output
+        let terminalBody = document.getElementById("terminal-body");
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
 }
 
 // Subroutine for generating the main content of the page
 function generateMainContent() {
     let main = document.createElement("main"); // Create <main> inside <body>
-    main.setAttribute("id", "main-content");   // Set an ID for styling later
+    main.setAttribute("id", "main-content"); // Set an ID for styling
 
     let content = document.createElement("section"); // Create a <section> for content
 
     // Identify the current page and generate content accordingly
     let currentPage = window.location.pathname.split("/").pop();
 
-    if (currentPage === "index.html" || currentPage === "") {
-        content.innerHTML = `
+    let pageContent = {
+        "index.html": `
             <h2>About Me</h2>
-            <p>Welcome to my portfolio! I am passionate about tech, programming and AI.</p>
-        `;
-    } else if (currentPage === "projects.html") {
-        content.innerHTML = `
+            <p>Welcome to my portfolio! I am passionate about tech, programming, and AI.</p>
+        `,
+        "projects.html": `
             <h2>My Projects</h2>
             <p>Here are some of my latest projects and coding experiments.</p>
-        `;
-    } else if (currentPage === "about.html") {
-        content.innerHTML = `
+        `,
+        "about.html": `
             <h2>Who Am I?</h2>
             <p>A tech enthusiast exploring cybersecurity and game development.</p>
-        `;
-    } else if (currentPage === "contact.html") {
-        content.innerHTML = `
+        `,
+        "contact.html": `
             <h2>Contact Me</h2>
             <p>Feel free to reach out to me for collaborations or discussions.</p>
-        `;
-    } else {
-        content.innerHTML = `
-            <h2>Page Not Found</h2>
-            <p>Oops! This page doesn't seem to exist.</p>
-        `;
-    }
+        `
+    };
+
+    content.innerHTML = pageContent[currentPage] || `
+        <h2>Page Not Found</h2>
+        <p>Oops! This page doesn't seem to exist.</p>
+    `;
 
     main.appendChild(content); // Append content to <main>
 
@@ -152,30 +219,29 @@ function generateMainContent() {
 
     console.log("Main content - LOADED!");
 }
-// Sub routine for generating the footer dynamically
+
+// Subroutine for generating the footer dynamically
 function generateFooter() {
     let footer = document.createElement("footer"); // Create <footer> element
     footer.setAttribute("id", "footer"); // Set ID for styling
 
-    // Create footer content
     let footerContent = document.createElement("p"); // Create <p> element
     let year = new Date().getFullYear(); // Get the current year dynamically
-    footerContent.innerHTML = `&copy; ${year} My Portfolio. All rights reserved.`;
+    footerContent.innerHTML = `&copy; ${year} My Portfolio. All rights reserved.`; // Dynamic copyright year
 
-    // Append content to the footer
-    footer.appendChild(footerContent);
+    footer.appendChild(footerContent); // Append content to footer
 
-    // Insert footer after <main> or at the end of <body> if <main> is missing
-    (document.querySelector("main") || document.body).after(footer);
+    // Insert footer at the end of the body
+    document.body.appendChild(footer);
 
     console.log("Footer - LOADED!");
 }
 
-// Ensure all HTML loads before the sub routines run.
+// Ensure all HTML loads before running the subroutines
 document.addEventListener("DOMContentLoaded", function () {
     generateHead();
     generateNav();
     generateHero();
-    generateMainContent(); 
+    generateMainContent();
     generateFooter();
 });
