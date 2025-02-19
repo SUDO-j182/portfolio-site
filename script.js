@@ -145,6 +145,24 @@ function generateMainContent() {
 
     console.log("Main content - LOADED!");
 }
+// Sub routine for generating the footer dynamically
+function generateFooter() {
+    let footer = document.createElement("footer"); // Create <footer> element
+    footer.setAttribute("id", "footer"); // Set ID for styling
+
+    // Create footer content
+    let footerContent = document.createElement("p"); // Create <p> element
+    let year = new Date().getFullYear(); // Get the current year dynamically
+    footerContent.innerHTML = `&copy; ${year} My Portfolio. All rights reserved.`;
+
+    // Append content to the footer
+    footer.appendChild(footerContent);
+
+    // Insert footer after <main> or at the end of <body> if <main> is missing
+    (document.querySelector("main") || document.body).after(footer);
+
+    console.log("Footer - LOADED!");
+}
 
 // Ensure all HTML loads before the sub routines run.
 document.addEventListener("DOMContentLoaded", function () {
@@ -152,4 +170,5 @@ document.addEventListener("DOMContentLoaded", function () {
     generateNav();
     generateHero();
     generateMainContent(); 
+    generateFooter();
 });
