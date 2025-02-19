@@ -55,6 +55,13 @@ function generateNav() {
         a.textContent = page.name;             // Set the link text
         a.href = page.file;                    // Set the link URL
 
+        // Adding event listener for dynamic loading
+        a.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent defualt link behavior
+            loadContent(page.file); // Load content dynamically
+            history.pushState({ page: page.file }, "", page.file); // Update URL without refresh
+        });
+
         // Highlight active page based on URL
         if (window.location.pathname.includes(page.file)) {
             a.classList.add("active");
