@@ -52,18 +52,13 @@ function generateNav() {
 
     // Loop through all pages and create navigation links
     pages.forEach(page => {
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        a.textContent = page.name;
-        a.href = page.file;
+        let li = document.createElement("li"); // Creating <li> tags
+        let a = document.createElement("a");   // Creating <a> tags
+        a.textContent = page.name;             // Set the link text
+        a.href = page.file;                    // Set the link URL
 
-        // Highlight active page based on URL
-        if (window.location.pathname.includes(page.file)) {
-            a.classList.add("active");
-        }
-
-        li.appendChild(a);
-        menu.appendChild(li);
+        li.appendChild(a);            // Append <a> to <li>
+        menu.appendChild(li);         // Append <li> to <ul>
     });
 
     nav.appendChild(menu); // Append <ul> to <nav>
