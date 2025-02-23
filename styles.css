@@ -1,0 +1,128 @@
+body { /*Global styling*/
+    background-color: #1a1a2e;
+    color: #ffcc00;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+}
+
+/*Links*/
+a {
+    color: #32cd32;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+/*Headings*/
+h1,h2.h3 {
+    color: #32cd32;
+    text-align: center;
+}
+
+/*Navigation bar*/
+nav {
+    background-color: #111;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+nav ul li a {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*Highlight active page*/
+nav ul li a.active {
+    background-color: #32cd32;
+    color: #111;
+    padding: 1px 10px;
+    border-radius: 5px;
+}
+
+/*Terminal window*/
+#terminal {
+    width: 80%;
+    max-width: 600px;
+    background-color: #000;
+    border-end-end-radius: 2px solid #32cd32;
+    padding: 15px;
+    font-family: monospace;
+    color: #32cd32;
+    box-shadow: 0px 0 px 15px rgba(50, 205, 50, 0.5);
+    margin-top: 20px;
+}
+/*Terminal title bar*/
+#terminal-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #222;
+    padding: 5px;
+    color: #ffcc00;
+}
+/*Terminal buttons*/
+terminal-btn {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.close {background-color: red;}
+.minimize {background-color: yellow;}
+.maximize {background-color: green;}
+
+/*Terminal Body*/
+#terminal-body {
+    height: 200px;
+    overflow-y: auto;
+    background-color: #111;
+    padding: 10px;
+}
+/*Terminal input*/
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: #ffcc00;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+}
+
+/*Main content*/
+main {
+    width: 80%;
+    max-width: 800px;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffcc00;
+    margin: 20px;
+}
+
+/*Footer*/
+footer {
+    background-color: #111;
+    color: #ffcc00;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+

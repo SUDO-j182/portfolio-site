@@ -50,12 +50,18 @@ function generateNav() {
         { name: "Contact", file: "contact.html" }
     ];
 
+    // Define `currentPage` to highlight the current page 
+    let currentPage = window.location.pathname.split("/").pop() || "index.html";
+
     // Loop through all pages and create navigation links
     pages.forEach(page => {
         let li = document.createElement("li"); // Creating <li> tags
         let a = document.createElement("a");   // Creating <a> tags
         a.textContent = page.name;             // Set the link text
         a.href = page.file;                    // Set the link URL
+        if (page.file === currentPage) {
+            a.classList.add("active");        // Highlight the current page
+        }
 
         li.appendChild(a);            // Append <a> to <li>
         menu.appendChild(li);         // Append <li> to <ul>
@@ -131,6 +137,17 @@ console.log("Hero section terminal window - LOADED!");
     console.log("Hero section - LOADED!");
 }
 
+// Subroutine for sanitizing user input
+function sanitizeInput(input) {
+    let sanitized = input.replace(/[<>]/g, ""); // Remove < and >
+    sanitized = sanitized.replace(/(on\w+=["'].*?["'])/g, ""); // Remove event handlers
+    sanitized = sanitized.replace(/javascript:/gi, ""); // Remove JavaScript protocol
+    console.log("Original Input:", input);
+    console.log("Sanitized Input:", sanitized);
+    return sanitized;
+}
+
+
 // Subroutine for handling terminal commands
 function handleTerminalCommand(event) {
     if (event.key === "Enter") {
@@ -140,6 +157,17 @@ function handleTerminalCommand(event) {
 
         // Clear input field after submission
         inputField.value = "";
+
+        // Limit command history to 5 lines
+        let maxHistory = 5;
+        let lines = terminalText.innerHTML.split("\n");
+        if (lines.length > maxHistory) {
+            lines = lines.slice(-maxHistory);
+        }
+        terminalText.innerHTML = lines.join("\n");
+
+        // Append new command to terminal
+        terminalText.innerHTML += `\n> ${command}`;
 
         // Handle different commands
         if (command === "help") {
@@ -234,9 +262,14 @@ function generateFooter() {
 
 // Ensure all HTML loads before running the subroutines
 document.addEventListener("DOMContentLoaded", function () {
-    generateHead();
-    generateNav();
-    generateHero();
-    generateMainContent();
-    generateFooter();
+    try {
+        generateHead();
+        generateNav();
+        generateHero();
+        generateMainContent();
+        generateFooter();
+    } catch (error) {
+        console.error("Error during initialization:", error);
+    }
 });
+
