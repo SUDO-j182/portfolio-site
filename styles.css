@@ -115,6 +115,13 @@ main {
     color: #ffcc00;
     margin: 20px;
 }
+/*Styling for sections inside main*/
+main section {
+    background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
 
 /*Footer*/
 footer {
