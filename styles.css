@@ -137,3 +137,318 @@ footer {
     margin-top: 20px;
 }
 
+/* Animation Containers */
+.animation-container {
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    max-width: 1200px; /* Adjust the max-width as needed */
+    height: 400px;
+    background-color: #000;
+    border: 2px solid #32cd32;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(50, 205, 50, 0.5);
+}
+
+/* Underwater scene animation */
+@keyframes bubble {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(173, 216, 230, 0.7);
+    border-radius: 50%;
+    animation: bubble 5s infinite;
+}
+
+/* Fish Animation */
+@keyframes swim {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+.fish {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: orange;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: swim 10s linear infinite;
+}
+
+.fish::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.fish::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    width: 20px;
+    height: 10px;
+    background-color: orange;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* Solar System Animation */
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+}
+
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    animation: orbit 10s linear infinite;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Planet with Trail Animation */
+@keyframes orbitWithTrail {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+.planet-trail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    transform-origin: -100px;
+    animation: orbitWithTrail 10s linear infinite;
+}
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Particle Simulation Animation */
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, 100px);
+    }
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    animation: move 2s infinite alternate;
+}
+
+/* Multicolored Particle Animation */
+@keyframes dither {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, 100px);
+        opacity: 0;
+    }
+}
+
+.particle-dither {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    animation: dither 2s infinite alternate;
+}
+
+/* Terminal Window Styling */
+.terminal-window {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 400px;
+    background-color: #000;
+    border: 2px solid #32cd32;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(50, 205, 50, 0.5);
+}
+
+.terminal-title {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    border-bottom: 2px solid #32cd32;
+}
+
+.terminal-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.terminal-btn.close {
+    background-color: #ff5f56;
+}
+
+.terminal-btn.minimize {
+    background-color: #ffbd2e;
+}
+
+.terminal-btn.maximize {
+    background-color: #27c93f;
+}
+
+.terminal-title-text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.terminal-body {
+    padding: 10px;
+    color: #32cd32;
+    font-family: monospace;
+    overflow-y: auto;
+    height: calc(100% - 40px); /* Adjust height to account for title bar */
+}
+
+/* Grid Animation */
+@keyframes moveSquare {
+    0% {
+        transform: translate(0, 0);
+        background-color: hsl(0, 100%, 50%);
+    }
+    50% {
+        transform: translate(10px, 10px);
+        background-color: hsl(180, 100%, 50%);
+    }
+    100% {
+        transform: translate(0, 0);
+        background-color: hsl(360, 100%, 50%);
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-square {
+    width: 20px;
+    height: 20px;
+    background-color: hsl(0, 100%, 50%);
+    animation: moveSquare 2s infinite;
+}
+
+/* Bouncing Triangle Animation */
+@keyframes bounceTriangle {
+    0% {
+        transform: translateY(0);
+        background-color: hsl(0, 100%, 50%);
+    }
+    50% {
+        transform: translateY(-20px);
+        background-color: hsl(180, 100%, 50%);
+    }
+    100% {
+        transform: translateY(0);
+        background-color: hsl(360, 100%, 50%);
+    }
+}
+
+.bouncing-triangle-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.bouncing-triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid hsl(0, 100%, 50%);
+    animation: bounceTriangle 1.5s infinite;
+}
+

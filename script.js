@@ -85,10 +85,12 @@ function generateHero() {
         // Create terminal window container
         let terminal = document.createElement("div"); // Create a <div> for the terminal
         terminal.setAttribute("id", "terminal"); // Set an ID for styling
+        terminal.classList.add("terminal-window");
 
         // Create terminal title bar
         let titleBar = document.createElement("div");
-        titleBar.setAttribute("id", "terminal-title"); 
+        titleBar.setAttribute("id", "terminal-title");
+        titleBar.classList.add("terminal-title");
         titleBar.innerHTML = `
             <span class="terminal-btn close"></span>
             <span class="terminal-btn minimize"></span>
@@ -97,8 +99,9 @@ function generateHero() {
         `;
 
         // Create terminal body for welcome message
-        let terminalBody = document.createElement("div"); 
+        let terminalBody = document.createElement("div");
         terminalBody.setAttribute("id", "terminal-body");
+        terminalBody.classList.add("terminal-body");
 
         let terminalText = document.createElement("pre"); // Simulating CLI output
         terminalText.setAttribute("id", "terminal-text");
@@ -131,44 +134,66 @@ Welcome to My Portfolio
 
         console.log("Hero section terminal window - LOADED!");
     } else {
+        // Create terminal window container for animations
+        let terminal = document.createElement("div"); // Create a <div> for the terminal
+        terminal.classList.add("terminal-window");
+
+        // Create terminal title bar
+        let titleBar = document.createElement("div");
+        titleBar.classList.add("terminal-title");
+        titleBar.innerHTML = `
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+            <span class="terminal-title-text">~/portfolio</span>
+        `;
+
+        // Create terminal body for animations
+        let terminalBody = document.createElement("div");
+        terminalBody.classList.add("terminal-body");
+
         let animationContainer = document.createElement("div");
-        animationContainer.setAttribute("id", "animation-container");
+        animationContainer.classList.add("animation-container");
 
         if (currentPage === "projects.html") {
-            for (let i = 0; i < 20; i++) {
-                let bubble = document.createElement("div");
-                bubble.classList.add("bubble");
-                bubble.style.left = `${Math.random() * 100}vw`;
-                bubble.style.animationDuration = `${Math.random() * 5 + 2}s`;
-                animationContainer.appendChild(bubble);
+            let bouncingTriangleContainer = document.createElement("div");
+            bouncingTriangleContainer.classList.add("bouncing-triangle-container");
+
+            // Create bouncing triangles
+            for (let i = 0; i < 100; i++) { // Adjust the number of triangles as needed
+                let bouncingTriangle = document.createElement("div");
+                bouncingTriangle.classList.add("bouncing-triangle");
+                bouncingTriangleContainer.appendChild(bouncingTriangle);
             }
-            hero.appendChild(animationContainer);
+
+            animationContainer.appendChild(bouncingTriangleContainer);
         } else if (currentPage === "about.html") {
-            let sun = document.createElement("div");
-            sun.classList.add("sun");
-            animationContainer.appendChild(sun);
+            let gridContainer = document.createElement("div");
+            gridContainer.classList.add("grid-container");
 
-            let planet = document.createElement("div");
-            planet.classList.add("planet");
-            animationContainer.appendChild(planet);
-
-            hero.appendChild(animationContainer);
-        } else if (currentPage === "contact.html") {
-            for (let i = 0; i < 50; i++) {
-                let particle = document.createElement("div");
-                particle.classList.add("particle");
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-                particle.style.animationDuration = `${Math.random() * 2 + 1}s`;
-                animationContainer.appendChild(particle);
+            // Create grid squares
+            for (let i = 0; i < 500; i++) { // Adjust the number of squares as needed
+                let gridSquare = document.createElement("div");
+                gridSquare.classList.add("grid-square");
+                gridContainer.appendChild(gridSquare);
             }
-            hero.appendChild(animationContainer);
+
+            animationContainer.appendChild(gridContainer);
+        } else if (currentPage === "contact.html") {
+            addParticlesToSimulation(animationContainer, 5000); // Increase number of particles
         }
+
+        terminalBody.appendChild(animationContainer);
+        terminal.appendChild(titleBar);
+        terminal.appendChild(terminalBody);
+
+        // Append terminal to the body below the footer
+        document.body.appendChild(terminal);
 
         console.log("Hero section animation - LOADED!");
     }
 
-    // Insert hero section below nav 
+    // Insert hero section below nav
     let existingNav = document.querySelector("nav");
     if (existingNav) {
         existingNav.after(hero); // Place hero below nav bar
@@ -301,6 +326,81 @@ function generateFooter() {
     document.body.appendChild(footer);
 
     console.log("Footer - LOADED!");
+}
+
+// Function to create interactive fish
+function createFish() {
+    const fish = document.createElement('div');
+    fish.classList.add('fish');
+    fish.style.top = `${Math.random() * 100}vh`;
+    fish.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    fish.addEventListener('mouseover', () => {
+        fish.style.animationDirection = fish.style.animationDirection === 'reverse' ? 'normal' : 'reverse';
+    });
+    return fish;
+}
+
+// Add fish to the underwater scene
+function addFishToScene(container, numFish) {
+    for (let i = 0; i < numFish; i++) {
+        const fish = createFish();
+        container.appendChild(fish);
+    }
+}
+
+// Function to create planets with trails
+function createPlanetWithTrail(distance) {
+    const planet = document.createElement('div');
+    planet.classList.add('planet');
+    planet.style.transformOrigin = `${distance}px`;
+    return planet;
+}
+
+// Add planets with trails to the solar system
+function addPlanetsToSystem(container, numPlanets) {
+    const distances = [100, 150, 200, 250, 300, 350, 400, 450]; // Distances for each planet
+    for (let i = 0; i < numPlanets; i++) {
+        const distance = distances[i % distances.length]; // Use distances cyclically
+        const planet = createPlanetWithTrail(distance);
+        planet.style.animationDuration = `${Math.random() * 10 + 5}s`;
+        container.appendChild(planet);
+    }
+}
+
+// Function to create stars
+function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = `${Math.random() * 100}vw`;
+    star.style.top = `${Math.random() * 100}vh`;
+    return star;
+}
+
+// Add stars to the solar system
+function addStarsToSystem(container, numStars) {
+    for (let i = 0; i < numStars; i++) {
+        const star = createStar();
+        container.appendChild(star);
+    }
+}
+
+// Function to create multicolored particles
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.classList.add('particle-dither');
+    particle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.top = `${Math.random() * 100}vh`;
+    particle.style.animationDuration = `${Math.random() * 2 + 1}s`;
+    return particle;
+}
+
+// Add particles to the particle simulation
+function addParticlesToSimulation(container, numParticles) {
+    for (let i = 0; i < numParticles; i++) {
+        const particle = createParticle();
+        container.appendChild(particle);
+    }
 }
 
 // Ensure all HTML loads before running the subroutines
