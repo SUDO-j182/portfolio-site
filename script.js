@@ -78,27 +78,31 @@ function generateHero() {
     let hero = document.createElement("section"); // Create a <section> for the hero
     hero.setAttribute("id", "hero"); // Set an ID for styling
 
-// Create terminal window container
-let terminal = document.createElement("div"); // Create a <div> for the terminal
-terminal.setAttribute("id", "terminal"); // Set an ID for styling
+    // Identify the current page
+    let currentPage = window.location.pathname.split("/").pop();
 
-// Create terminal title bar
-let titleBar = document.createElement("div");
-titleBar.setAttribute("id", "terminal-title"); 
-titleBar.innerHTML = `
-    <span class="terminal-btn close"></span>
-    <span class="terminal-btn minimize"></span>
-    <span class="terminal-btn maximize"></span>
-    <span class="terminal-title-text">~/portfolio</span>
-`;
+    // Create terminal window container if currentPage is index.html
+    if (currentPage === "index.html") {
+        let terminal = document.createElement("div"); // Create a <div> for the terminal
+        terminal.setAttribute("id", "terminal"); // Set an ID for styling
 
-// Create terminal body for welcome message
-let terminalBody = document.createElement("div"); 
-terminalBody.setAttribute("id", "terminal-body");
+        // Create terminal title bar
+        let titleBar = document.createElement("div");
+        titleBar.setAttribute("id", "terminal-title"); 
+        titleBar.innerHTML = `
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+            <span class="terminal-title-text">~/portfolio</span>
+        `;
 
-let terminalText = document.createElement("pre"); // Simulating CLI output
-terminalText.setAttribute("id", "terminal-text");
-terminalText.innerHTML = `
+        // Create terminal body for welcome message
+        let terminalBody = document.createElement("div"); 
+        terminalBody.setAttribute("id", "terminal-body");
+
+        let terminalText = document.createElement("pre"); // Simulating CLI output
+        terminalText.setAttribute("id", "terminal-text");
+        terminalText.innerHTML = `
 Welcome to My Portfolio
 ---------------------------
 > Ex warehouse professional, transitioning into tech.
@@ -106,23 +110,25 @@ Welcome to My Portfolio
 > Type 'help' for more information.
 `;
 
-// Create terminal input field
-let terminalInput = document.createElement("input");
-terminalInput.setAttribute("type", "text");
-terminalInput.setAttribute("id", "terminal-input");
-terminalInput.setAttribute("placeholder", "Type a command...");
-terminalInput.setAttribute("autocomplete", "off");
-terminalBody.appendChild(terminalInput);
+        // Create terminal input field
+        let terminalInput = document.createElement("input");
+        terminalInput.setAttribute("type", "text");
+        terminalInput.setAttribute("id", "terminal-input");
+        terminalInput.setAttribute("placeholder", "Type a command...");
+        terminalInput.setAttribute("autocomplete", "off");
+        terminalBody.appendChild(terminalInput);
 
-// Append elements together
-terminalBody.appendChild(terminalText);
-terminalBody.appendChild(terminalInput);
-terminal.appendChild(titleBar);
-terminal.appendChild(terminalBody);
-hero.appendChild(terminal);
+        // Append elements together
+        terminalBody.appendChild(terminalText);
+        terminalBody.appendChild(terminalInput);
+        terminal.appendChild(titleBar);
+        terminal.appendChild(terminalBody);
+        hero.appendChild(terminal);
 
+        console.log("Hero section terminal window - LOADED!");
 
-console.log("Hero section terminal window - LOADED!");
+        terminalInput.addEventListener("keydown", handleTerminalCommand);
+    }
 
     // Insert hero section below the navigation
     let nav = document.querySelector("nav");
@@ -132,12 +138,11 @@ console.log("Hero section terminal window - LOADED!");
         document.body.prepend(hero); // If no nav, add to the top of body
     }
 
-    terminalInput.addEventListener("keydown", handleTerminalCommand);
-
     console.log("Hero section - LOADED!");
 }
 
 // Subroutine for sanitizing user input
+
 function sanitizeInput(input) {
     let sanitized = input.replace(/[<>]/g, ""); // Remove < and >
     sanitized = sanitized.replace(/(on\w+=["'].*?["'])/g, ""); // Remove event handlers

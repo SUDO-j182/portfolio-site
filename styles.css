@@ -122,6 +122,10 @@ main section {
     border-radius: 8px;
     margin-bottom: 15px;
 }
+/* If sections need a border to stand out */
+main section:nth-child(odd) {
+    border-left: 3px solid #32cd32; /* Neon green for contrast */
+}
 
 /*Footer*/
 footer {
