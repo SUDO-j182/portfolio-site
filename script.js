@@ -81,8 +81,8 @@ function generateHero() {
     // Identify the current page
     let currentPage = window.location.pathname.split("/").pop();
 
-    // Create terminal window container if currentPage is index.html
     if (currentPage === "index.html") {
+        // Create terminal window container
         let terminal = document.createElement("div"); // Create a <div> for the terminal
         terminal.setAttribute("id", "terminal"); // Set an ID for styling
 
@@ -108,7 +108,7 @@ Welcome to My Portfolio
 > Ex warehouse professional, transitioning into tech.
 > Passionate about programming, AI and personal development.
 > Type 'help' for more information.
-`;
+        `;
 
         // Create terminal input field
         let terminalInput = document.createElement("input");
@@ -116,29 +116,98 @@ Welcome to My Portfolio
         terminalInput.setAttribute("id", "terminal-input");
         terminalInput.setAttribute("placeholder", "Type a command...");
         terminalInput.setAttribute("autocomplete", "off");
-        terminalBody.appendChild(terminalInput);
 
         // Append elements together
         terminalBody.appendChild(terminalText);
-        terminalBody.appendChild(terminalInput);
         terminal.appendChild(titleBar);
         terminal.appendChild(terminalBody);
-        hero.appendChild(terminal);
+        terminal.appendChild(terminalInput); // Ensure input is at the bottom
+
+        hero.appendChild(terminal); // Append terminal to hero section
+
+        // Attach event listener for handling terminal commands
+        terminalInput.addEventListener("keydown", handleTerminalCommand);
+        terminalInput.focus(); // Auto-focus input field
 
         console.log("Hero section terminal window - LOADED!");
+    } else {
+        let animationContainer = document.createElement("div");
+        animationContainer.setAttribute("id", "animation-container");
 
-        terminalInput.addEventListener("keydown", handleTerminalCommand);
+        if (currentPage === "projects.html") {
+            animationContainer.innerHTML = `<canvas id="underwater-scene"></canvas>`;
+            hero.appendChild(animationContainer);
+            initUnderwaterScene(); // Initialize underwater scene animation
+        } else if (currentPage === "about.html") {
+            animationContainer.innerHTML = `<canvas id="solar-system"></canvas>`;
+            hero.appendChild(animationContainer);
+            initSolarSystem(); // Initialize solar system animation
+        } else if (currentPage === "contact.html") {
+            animationContainer.innerHTML = `<canvas id="particle-simulation"></canvas>`;
+            hero.appendChild(animationContainer);
+            initParticleSimulation(); // Initialize particle simulation animation
+        }
+
+        console.log("Hero section animation - LOADED!");
     }
 
-    // Insert hero section below the navigation
-    let nav = document.querySelector("nav");
-    if (nav) {
-        nav.after(hero); // Place hero below nav bar
-    } else { 
-        document.body.prepend(hero); // If no nav, add to the top of body
-    }
+    // Insert hero section below nav 
+    let existingNav = document.querySelector("nav");
+    if (existingNav) {
+        existingNav.after(hero); // Place hero below nav bar
+    } else {
+        document.body.prepend(hero); // If no nav, add to top of body
 
     console.log("Hero section - LOADED!");
+}
+}
+
+// Initialize underwater scene animation
+function initUnderwaterScene() {
+    const canvas = document.getElementById('underwater-scene');
+    if (!canvas) {
+        console.error("Canvas element for underwater scene not found");
+        return;
+    }
+    const ctx = canvas.getContext('2d');
+    // Set canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Add your underwater scene animation code here
+    console.log("Underwater scene animation initialized");
+}
+
+// Initialize solar system animation
+function initSolarSystem() {
+    const canvas = document.getElementById('solar-system');
+    if (!canvas) {
+        console.error("Canvas element for solar system not found");
+        return;
+    }
+    const ctx = canvas.getContext('2d');
+    // Set canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Add your solar system animation code here
+    console.log("Solar system animation initialized");
+}
+
+// Initialize particle simulation animation
+function initParticleSimulation() {
+    const canvas = document.getElementById('particle-simulation');
+    if (!canvas) {
+        console.error("Canvas element for particle simulation not found");
+        return;
+    }
+    const ctx = canvas.getContext('2d');
+    // Set canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Add your particle simulation animation code here
+    console.log("Particle simulation animation initialized");
 }
 
 // Subroutine for sanitizing user input
