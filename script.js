@@ -135,17 +135,34 @@ Welcome to My Portfolio
         animationContainer.setAttribute("id", "animation-container");
 
         if (currentPage === "projects.html") {
-            animationContainer.innerHTML = `<canvas id="underwater-scene"></canvas>`;
+            for (let i = 0; i < 20; i++) {
+                let bubble = document.createElement("div");
+                bubble.classList.add("bubble");
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.animationDuration = `${Math.random() * 5 + 2}s`;
+                animationContainer.appendChild(bubble);
+            }
             hero.appendChild(animationContainer);
-            initUnderwaterScene(); // Initialize underwater scene animation
         } else if (currentPage === "about.html") {
-            animationContainer.innerHTML = `<canvas id="solar-system"></canvas>`;
+            let sun = document.createElement("div");
+            sun.classList.add("sun");
+            animationContainer.appendChild(sun);
+
+            let planet = document.createElement("div");
+            planet.classList.add("planet");
+            animationContainer.appendChild(planet);
+
             hero.appendChild(animationContainer);
-            initSolarSystem(); // Initialize solar system animation
         } else if (currentPage === "contact.html") {
-            animationContainer.innerHTML = `<canvas id="particle-simulation"></canvas>`;
+            for (let i = 0; i < 50; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                animationContainer.appendChild(particle);
+            }
             hero.appendChild(animationContainer);
-            initParticleSimulation(); // Initialize particle simulation animation
         }
 
         console.log("Hero section animation - LOADED!");
@@ -157,57 +174,9 @@ Welcome to My Portfolio
         existingNav.after(hero); // Place hero below nav bar
     } else {
         document.body.prepend(hero); // If no nav, add to top of body
+    }
 
     console.log("Hero section - LOADED!");
-}
-}
-
-// Initialize underwater scene animation
-function initUnderwaterScene() {
-    const canvas = document.getElementById('underwater-scene');
-    if (!canvas) {
-        console.error("Canvas element for underwater scene not found");
-        return;
-    }
-    const ctx = canvas.getContext('2d');
-    // Set canvas size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Add your underwater scene animation code here
-    console.log("Underwater scene animation initialized");
-}
-
-// Initialize solar system animation
-function initSolarSystem() {
-    const canvas = document.getElementById('solar-system');
-    if (!canvas) {
-        console.error("Canvas element for solar system not found");
-        return;
-    }
-    const ctx = canvas.getContext('2d');
-    // Set canvas size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Add your solar system animation code here
-    console.log("Solar system animation initialized");
-}
-
-// Initialize particle simulation animation
-function initParticleSimulation() {
-    const canvas = document.getElementById('particle-simulation');
-    if (!canvas) {
-        console.error("Canvas element for particle simulation not found");
-        return;
-    }
-    const ctx = canvas.getContext('2d');
-    // Set canvas size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Add your particle simulation animation code here
-    console.log("Particle simulation animation initialized");
 }
 
 // Subroutine for sanitizing user input
