@@ -102,4 +102,74 @@ nav ul li a.active {
     border-radius: 5px;
 }
 
+/* Navigation Bar Hover Animation */
+nav ul li a {
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    color: #32cd32; /* Green terminal text */
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid #32cd32; /* Green border for retro look */
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #32cd32;
+    color: #111;
+    box-shadow: 0px 0px 10px rgba(50, 205, 50, 0.8); /* Adds a glow effect */
+    text-decoration: underline;
+}
+
+/* Glowing Terminal Effect */
+@keyframes terminal-glow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(50, 205, 50, 0.5);
+    }
+    50% {
+        box-shadow: 0px 0px 20px rgba(50, 205, 50, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 10px rgba(50, 205, 50, 0.5);
+    }
+}
+
+.terminal-window {
+    width: 90%;
+    max-width: 600px;
+    background-color: black;
+    border: 2px solid #32cd32;
+    padding: 15px;
+    font-family: monospace;
+    color: #32cd32;
+    animation: terminal-glow 1.5s infinite alternate;
+}
+
+@keyframes intense-static {
+    0% { background-position: 0 0; }
+    25% { background-position: -8px -8px; }
+    50% { background-position: 8px 8px; }
+    75% { background-position: -8px 8px; }
+    100% { background-position: 8px -8px; }
+}
+
+/* More Intense TempleOS TV Static Effect */
+.hero-scroll {
+    background-color: #000;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Crect width='2' height='2' x='0' y='0' fill='%230026ff'/%3E%3Crect width='2' height='2' x='2' y='2' fill='%23ff0000'/%3E%3Crect width='2' height='2' x='4' y='4' fill='%2300ff00'/%3E%3Crect width='2' height='2' x='6' y='6' fill='%23ffff00'/%3E%3C/svg%3E");
+    background-size: 8px 8px; /* Smaller pixel grid */
+    animation: intense-static 0.1s infinite steps(8);
+    image-rendering: pixelated;
+}
+
+
+
+
+
+
+
 

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (index < textContent.length) {
                 terminal.innerHTML += textContent.charAt(index);
                 index++;
-                setTimeout(typeWriter, 50); // Adjust speed here
+                setTimeout(typeWriter, 100); // Adjust speed here
             }
         }
 
