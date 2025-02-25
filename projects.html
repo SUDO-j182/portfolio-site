@@ -11,23 +11,32 @@
 </head>
 <body>
 
-    <section id="hero" class="hero-scroll"> <!-- Hero Section (Same Boot-Up Feel as Home Page) -->
-        <div class="terminal-window">
+    <section id="hero" class="dither-bg hero-scroll"> <!--Hero section-->
+        <div class="terminal-window pixel-text">
             <div class="terminal-title">
                 <span class="terminal-btn close"></span>
                 <span class="terminal-btn minimize"></span>
                 <span class="terminal-btn maximize"></span>
-                <span class="terminal-title-text">~/projects</span>
+                <span class="terminal-title-text">~/portfolio</span>
             </div>
             <div class="terminal-body">
                 <pre id="hero-text">
-Accessing PortfolioOS Projects...
+Booting PortfolioOS...
 ----------------------------
-> Fetching project list...
+> Initializing graphics...
 > Loading assets...
 > Ready.
+> Welcome to My Portfolio
                 </pre>
+                <span class="blinking-cursor">_</span> <!-- Blinking cursor added -->
             </div>
+        </div>
+        <div id="portfolio-text" class="portfolio-text">Portfolio OS</div> <!-- Added big pixelated dithering text -->
+        <div id="clock" class="clock"></div> <!-- Live clock moved outside terminal-window -->
+        <div id="widgets" class="widgets">
+            <div id="weather" class="widget">Weather: Loading...</div>
+            <div id="news" class="widget">News: Loading...</div>
+            <div id="calendar" class="widget">Calendar: Loading...</div>
         </div>
     </section>
 

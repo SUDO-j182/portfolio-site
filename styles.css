@@ -166,6 +166,85 @@ nav ul li a:hover {
     image-rendering: pixelated;
 }
 
+.clock {
+    position: absolute;
+    top: -10px; /* Adjusted to move up by 30px */
+    right: 20px; /* Adjust as needed */
+    font-size: 24px; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+    z-index: 10; /* Ensure it is above other elements */
+}
+
+.widgets {
+    position: absolute;
+    top: 30px; /* Adjusted to move up by 30px */
+    left: calc(100% - 220px); /* Adjust as needed to position opposite the clock */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+    z-index: 10; /* Ensure it is above other elements */
+}
+
+.widget {
+    margin-bottom: 20px; /* Space between widgets */
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 5px;
+    width: 100%; /* Full width of the container */
+}
+
+#widgets-container {
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10; /* Ensure it is above other elements */
+}
+
+.widgets {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+    margin-bottom: 20px; /* Space between widgets and quote */
+}
+
+.widget {
+    margin-bottom: 20px; /* Space between widgets */
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 5px;
+    width: 100%; /* Full width of the container */
+}
+
+.quote {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px; /* Adjust as needed */
+    width: 100%; /* Full width of the container */
+}
+
+.portfolio-text {
+    position: absolute;
+    top: 30px; /* Align with the top of the widgets */
+    left: calc(100% - 660px); /* Adjusted to move left of the widgets */
+    font-size: 48px; /* Adjust as needed */
+    color: #32cd32; /* Green terminal text */
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    filter: contrast(200%);
+    image-rendering: pixelated;
+    z-index: 10; /* Ensure it is above other elements */
+}
+
 
 
 

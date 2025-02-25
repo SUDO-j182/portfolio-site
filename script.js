@@ -16,4 +16,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
         typeWriter();
     });
+
+    function updateClock() {
+        const clockElement = document.getElementById('clock');
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    function updateWeather() {
+        fetch('https://api.weatherapi.com/v1/current.json?key=79f0f31877404356b52182440252502&q=United Kingdom')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('weather').textContent = `Weather: ${data.current.temp_c}°C, ${data.current.condition.text}`;
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                document.getElementById('weather').textContent = 'Weather: Unable to load';
+            });
+    }
+
+    function updateNews() {
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=13ace44f343943fa915fce690ac42c3b')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('news').textContent = `News: ${data.articles[0].title}`;
+            })
+            .catch(error => {
+                console.error('Error fetching news data:', error);
+                document.getElementById('news').textContent = 'News: Unable to load';
+            });
+    }
+
+    function updateCalendar() {
+        const calendarElement = document.getElementById('calendar');
+        const now = new Date();
+        const month = now.toLocaleString('default', { month: 'long' });
+        const year = now.getFullYear();
+        calendarElement.textContent = `Calendar: ${month} ${year}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // initial call to display clock immediately
+    updateWeather();
+    updateNews();
+    updateCalendar();
 });

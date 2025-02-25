@@ -7,7 +7,6 @@
     <title>PortfolioOS | Home</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-
 </head>
 <body>
 
@@ -21,18 +20,24 @@
             </div>
             <div class="terminal-body">
                 <pre id="hero-text">
-    Booting PortfolioOS...
-    ----------------------------
-    > Initializing graphics...
-    > Loading assets...
-    > Ready.
-    > Welcome to My Portfolio
+Booting PortfolioOS...
+----------------------------
+> Initializing graphics...
+> Loading assets...
+> Ready.
+> Welcome to My Portfolio
                 </pre>
                 <span class="blinking-cursor">_</span> <!-- Blinking cursor added -->
             </div>
         </div>
+        <div id="portfolio-text" class="portfolio-text">Portfolio OS</div> <!-- Added big pixelated dithering text -->
+        <div id="clock" class="clock"></div> <!-- Live clock moved outside terminal-window -->
+        <div id="widgets" class="widgets">
+            <div id="weather" class="widget">Weather: Loading...</div>
+            <div id="news" class="widget">News: Loading...</div>
+            <div id="calendar" class="widget">Calendar: Loading...</div>
+        </div>
     </section>
-    
 
     <header> <!-- Navigation -->
         <nav>
