@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (index < textContent.length) {
                 terminal.innerHTML += textContent.charAt(index);
                 index++;
-                setTimeout(typeWriter, 100); // Adjust speed here
+                setTimeout(typeWriter, 5); // Adjust speed here
             }
         }
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateWeather() {
-        fetch('https://api.weatherapi.com/v1/current.json?key=79f0f31877404356b52182440252502&q=United Kingdom')
+        fetch('https://api.weatherapi.com/v1/current.json?key=79f0f31877404356b52182440252502&q=London')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('weather').textContent = `Weather: ${data.current.temp_c}°C, ${data.current.condition.text}`;
@@ -50,17 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    function updateCalendar() {
-        const calendarElement = document.getElementById('calendar');
-        const now = new Date();
-        const month = now.toLocaleString('default', { month: 'long' });
-        const year = now.getFullYear();
-        calendarElement.textContent = `Calendar: ${month} ${year}`;
-    }
 
     setInterval(updateClock, 1000);
     updateClock(); // initial call to display clock immediately
     updateWeather();
     updateNews();
-    updateCalendar();
 });

@@ -195,6 +195,10 @@ nav ul li a:hover {
     width: 100%; /* Full width of the container */
 }
 
+#calendar {
+    margin-top: 20px; /* Move the calendar widget down by 20 pixels */
+}
+
 #widgets-container {
     position: absolute;
     top: 60px; /* Adjust as needed */
