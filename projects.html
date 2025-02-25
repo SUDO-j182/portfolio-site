@@ -7,8 +7,69 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <section id="hero"> <!-- Hero Section (Same Boot-Up Feel as Home Page) -->
+    <div class="terminal-window">
+        <div class="terminal-title">
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+            <span class="terminal-title-text">~/projects</span>
+        </div>
+        <div class="terminal-body">
+            <pre id="hero-text">
+Accessing PortfolioOS Projects...
+----------------------------
+> Fetching project list...
+> Loading assets...
+> Ready.
+            </pre>
+        </div>
+    </div>
+</section>
 
-    <!-- Content will go here -->
+
+<header> <!-- Navigation (Same as Other Pages) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<main>  <!-- Main Content: Project Showcase -->
+    <h1>My Projects</h1>
+
+    <section class="project">
+        <h2>Pixel Art Drawing Tool</h2>
+        <img src="assets/pixel-tool.png" alt="Pixel Art Tool Screenshot">
+        <p>A JavaScript-based drawing tool using TempleOS-inspired 16-color graphics.</p>
+        <a href="https://yourprojectlink.com" target="_blank">View Project</a>
+    </section>
+
+    <section class="project">
+        <h2>Password Generator PWA</h2>
+        <img src="assets/password-gen.png" alt="Password Generator Screenshot">
+        <p>A web app that generates secure passwords while using a retro aesthetic.</p>
+        <a href="https://yourprojectlink.com" target="_blank">View Project</a>
+    </section>
+
+    <section class="project">
+        <h2>GoldenEye 007 JavaScript Demo</h2>
+        <img src="assets/goldeneye-demo.png" alt="GoldenEye 007 JS Remake">
+        <p>A browser-based remake of a small section of GoldenEye 007 using Three.js.</p>
+        <a href="https://yourprojectlink.com" target="_blank">View Project</a>
+    </section>
+
+</main>
+
+
+<footer> <!-- Footer -->
+    <p>&copy; 2025 PortfolioOS. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
