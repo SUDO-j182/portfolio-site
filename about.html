@@ -3,12 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortfolioOS</title>
+    <meta name="description" content="Learn more about me, my skills, and inspirations, including my love for TempleOS aesthetics and retro computing.">
+    <title>PortfolioOS | About</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Content will go here -->
+    <section id="hero"> <!-- Hero Section (Now Above Navigation) -->
+        <div class="terminal-window">
+            <div class="terminal-title">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+                <span class="terminal-title-text">~/about</span>
+            </div>
+            <div class="terminal-body">
+                <pre id="hero-text">
+Fetching user profile...
+----------------------------
+> Name: [Your Name]
+> Interests: Programming, TempleOS Aesthetics, Cybersecurity
+> Status: Active
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <header> <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main> <!-- Main Content -->
+        <h1>Who Am I?</h1>
+        <p>Hello! I'm [Your Name], a developer passionate about retro computing, TempleOS aesthetics, and low-level programming.</p>
+
+        <section id="profile">
+            <img src="assets/profile.jpg" alt="Profile Picture" style="border-radius:50%; display:block; margin: 10px auto; width: 200px; height: 200px;">
+        </section>
+
+        <h2>Skills</h2>
+        <ul>
+            <li>JavaScript, HTML, CSS</li>
+            <li>Three.js for 3D rendering</li>
+            <li>Low-level C programming</li>
+            <li>Cybersecurity & Networking</li>
+            <li>Version Control (Git & GitHub)</li>
+        </ul>
+
+        <h2>Future Goals</h2>
+        <p>I'm currently learning subprogramming with JavaScript to make my code modular and reusable. In the near future, I plan to dive deeper into C to build my own sprite editor.</p>
+
+        <h2>TempleOS Inspiration</h2>
+        <p>I admire TempleOS for its **16-color palette, pixel art aesthetics, and low-level programming**. My goal is to create projects that reflect this unique style.</p>
+
+        <h2>Random Thought</h2>
+        <p>"This is a joke. It’s a joke, and it's not a joke. It's all things." - TempleOS</p>
+    </main>
+
+    <footer>  <!-- Footer -->
+        <p>&copy; 2025 PortfolioOS. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>

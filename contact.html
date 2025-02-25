@@ -3,12 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortfolioOS</title>
+    <meta name="description" content="Get in touch with me via email, LinkedIn, or GitHub. Reach out for collaborations, discussions, or inquiries about my projects.">
+    <title>PortfolioOS | Contact</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Content will go here -->
+    <section id="hero"> <!-- Hero Section (Terminal-Style Contact Info) -->
+        <div class="terminal-window">
+            <div class="terminal-title">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+                <span class="terminal-title-text">~/contact</span>
+            </div>
+            <div class="terminal-body">
+                <pre id="hero-text">
+Accessing Contact Database...
+----------------------------
+> Email: your.email@example.com
+> LinkedIn: linkedin.com/in/yourprofile
+> GitHub: github.com/yourgithub
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <header> <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main> <!-- Main Content -->
+        <h1>Contact Me</h1>
+        <p>If you'd like to reach out, feel free to use one of the methods below.</p>
+
+        <h2>Email</h2>
+        <p>
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </p>
+
+        <h2>Social Links</h2>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.credly.com/users/yourprofile" target="_blank">Credly</a></li>
+            <li><a href="https://github.com/yourgithub" target="_blank">GitHub</a></li>
+        </ul>
+
+        <h2>Contact Form</h2>
+        <form id="contact-form" action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
+        
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Your Email" required><br><br>
+        
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea><br><br>
+        
+            <button type="submit">Send</button>
+        </form>
+        
+
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+
+    </main>
+
+    <footer> <!-- Footer -->
+        <p>&copy; 2025 PortfolioOS. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
