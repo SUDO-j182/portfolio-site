@@ -254,6 +254,35 @@ a {
     opacity: 0.5; /* Adjust the opacity to your preference */
 }
 
+/* Add this to your CSS file */
+@media only screen and (max-width: 768px) {
+    /* Styles for mobile devices */
+    .mobile-content {
+        display: block;
+    }
+    .desktop-content {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    /* Styles for desktop devices */
+    .mobile-content {
+        display: none;
+    }
+    .desktop-content {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #clock,
+    #widgets {
+        display: none;
+    }
+}
+
+
 
 
 

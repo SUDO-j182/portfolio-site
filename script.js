@@ -56,3 +56,32 @@ document.addEventListener("DOMContentLoaded", function () {
     updateWeather();
     updateNews();
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    if (isMobileDevice()) {
+        // Load mobile-specific content or make changes for mobile devices
+        document.getElementById('mobile-specific-content').style.display = 'block';
+        document.getElementById('desktop-specific-content').style.display = 'none';
+    } else {
+        // Load desktop-specific content or make changes for desktop devices
+        document.getElementById('mobile-specific-content').style.display = 'none';
+        document.getElementById('desktop-specific-content').style.display = 'block';
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    function isMobileDevice() {
+        return window.innerWidth <= 768;
+    }
+
+    if (isMobileDevice()) {
+        document.getElementById('clock').style.display = 'none';
+        document.getElementById('widgets').style.display = 'none';
+    }
+});
+
