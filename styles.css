@@ -283,6 +283,55 @@ a {
     }
 }
 
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #111; /* Dark background */
+    border: 2px solid #32cd32; /* Green border */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(50, 205, 50, 0.5); /* Green glow */
+}
+
+.contact-form label {
+    font-size: 18px;
+    color: #32cd32; /* Green text */
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #32cd32; /* Green border */
+    border-radius: 5px;
+    background-color: #000; /* Black background */
+    color: #32cd32; /* Green text */
+}
+
+.contact-form button {
+    font-size: 18px;
+    font-weight: bold;
+    color: #111; /* Dark text */
+    background-color: #32cd32; /* Green background */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: rgba(0, 255, 0, 0.1); /* Light green background on hover */
+    color: #32cd32; /* Green text */
+    box-shadow: 0px 0px 10px rgba(50, 205, 50, 0.8); /* Adds a glow effect */
+}
+
+
 
 
 
