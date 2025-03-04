@@ -1,4 +1,9 @@
-# portfolio-site
-My first MAJOR project, serving to increase my employability and introduce  me to JavaScript sub programming.
+TODO:
 
-***Replace terminal static with sprite animations????***
+Update site with new version of password generator. 
+
+Add change log to all projects.
+
+Add password Genrator v1.0 to featured project.
+
+Add icons for email and social links.
