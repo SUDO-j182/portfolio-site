@@ -193,6 +193,71 @@
     box-shadow: 0 0 0 2px #009688;
   }
   
+  .resume-tool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  #resume-form {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  #resume-form input,
+  #resume-form textarea,
+  #resume-form button {
+    padding: 0.5rem;
+    background: #111;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+  
+  #generateBtn {
+    background-color: #0ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .preview-box {
+    flex: 1 1 300px;
+    padding: 1rem;
+    border: 2px dashed #444;
+    background: #1a1a1a;
+    border-radius: 6px;
+    color: #999;
+    text-align: center;
+    opacity: 0.9;
+    user-select: none;
+  }
+  
+  .blurred-output {
+    filter: blur(2px);
+    opacity: 0.5;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #0ff;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .resume-tool {
+      flex-direction: column;
+    }
+  }
   
   
   /* Chrome, Edge, Safari */

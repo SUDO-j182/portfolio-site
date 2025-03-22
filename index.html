@@ -9,6 +9,9 @@
     <link rel="icon" href="assets/favicon-16x16.png" type="image/png"> <!-- Favicon added -->
 </head>
 <body> 
+
+  <canvas id="matrix-bg"></canvas>
+
        <!--NAVIGATION BAR-->
     <header>
         <nav class="navbar">
@@ -199,6 +202,36 @@
             <p>This was my first project — a clean, responsive CV built using semantic HTML and CSS. It helped me get noticed in the tech space and laid the foundation for all my later work in web development.</p>
           </div>
     </section>
+                       <!--CV BUIDER SECTION-->
+    <section id="resume-builder" class="scroll-section">
+      <h2>Need a Professional HTML CV/Resume?</h2>
+      <p>Fill in the form below to preview a sample. To get a clean, styled HTML/CSS CV tailored to you, hire me on Fiverr.</p>
+    
+      <div class="resume-tool">
+        <form id="resume-form">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" required>
+    
+          <label for="summary">Professional Summary:</label>
+          <textarea id="summary" rows="4"></textarea>
+    
+          <label for="skills">Skills (comma-separated):</label>
+          <input type="text" id="skills">
+    
+          <button type="button" id="generateBtn">Preview</button>
+        </form>
+    
+        <div id="resume-preview" class="preview-box">
+          <h3>Sample Preview</h3>
+          <p><em>This is a teaser of your custom HTML CV.</em></p>
+          <p class="blurred-output">Name: [Your Name]</p>
+          <p class="blurred-output">Summary: [Your Summary]</p>
+          <p class="blurred-output">Skills: [Your Skills]</p>
+          <a href="https://www.fiverr.com/s/kLg3l3A" target="_blank" class="cta-button">Order Now on Fiverr</a>
+        </div>
+      </div>
+    </section>
+    
 
     <!--RESOURCES SECTION-->
     <section id="resources" class="scroll-section">
@@ -265,6 +298,7 @@
   </footer>
 
   <script>
+    // Scroll reveal animation
     const scrollElements = document.querySelectorAll('.scroll-section');
   
     const scrollObserver = new IntersectionObserver((entries) => {
@@ -279,7 +313,23 @@
     });
   
     scrollElements.forEach(el => scrollObserver.observe(el));
+  
+    // Resume builder teaser preview logic
+    const generateBtn = document.getElementById("generateBtn");
+    if (generateBtn) {
+      generateBtn.addEventListener("click", function () {
+        const name = document.getElementById("fullName").value || "[Your Name]";
+        const summary = document.getElementById("summary").value || "[Your Summary]";
+        const skills = document.getElementById("skills").value || "[Your Skills]";
+  
+        document.querySelectorAll(".blurred-output")[0].textContent = `Name: ${name}`;
+        document.querySelectorAll(".blurred-output")[1].textContent = `Summary: ${summary}`;
+        document.querySelectorAll(".blurred-output")[2].textContent = `Skills: ${skills}`;
+      });
+    }
   </script>
+  
+  
 
 </body>
 </html>
