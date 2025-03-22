@@ -4,131 +4,61 @@
     <meta charset="UTF-8"> <!--MetaData-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PortfolioOS - Showcasing my programming, web development, and TempleOS-inspired projects.">
-    <title>PortfolioOS | Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>Portfolio-OS | Home</title>
     <link rel="icon" href="assets/favicon-16x16.png" type="image/png"> <!-- Favicon added -->
 </head>
-<body>
+<body> 
 
-    <section id="hero" class="dither-bg hero-scroll"> <!-- Hero section -->
-        <div class="terminal-window pixel-text">
-            <div class="terminal-title">
-                <span class="terminal-btn close"></span>
-                <span class="terminal-btn minimize"></span>
-                <span class="terminal-btn maximize"></span>
-                <span class="terminal-title-text">~/portfolio</span>
-            </div>
-            <div class="terminal-body">
-                <pre id="hero-text">
-Booting Portfolio-OS...
-----------------------------
-> Initializing graphics...
-> Loading assets...
-> Ready.
-> Welcome to My Portfolio
-                </pre>
-                <span class="blinking-cursor">_</span> <!-- Blinking cursor added -->
-            </div>
-        </div>
-        <div id="portfolio-text" class="portfolio-text">Portfolio OS</div> <!-- Added big pixelated dithering text -->
-        <div id="clock" class="clock"></div> <!-- Live clock moved outside terminal-window -->
-        <div id="widgets" class="widgets">
-            <div id="weather" class="widget">Weather: Loading...</div>
-            <div id="news" class="widget">News: Loading...</div>
+    <!--INTRO/HERO SECTION-->
+    <section id="intro" class="scroll-section">
+        <div class="hero-content">
+            <h1>Jai Drakulic</h1>
+            <h2>Web Developer | Programmer | AI enthusiast</h2>
+            <p>From warehouse floors and loading bays, to writing code - A self taught developer building interactive, accessible and secure web solutions.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
         </div>
     </section>
 
-    <header> <!-- Navigation -->
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!--ABOUT SECTION-->
+    <section id="about" class="scroll-section">
+        <h2>About Me</h2>
+        <p>I spent seven years working in warehouses before making the leap into tech. Diagnosed with ADHD at a young age, I struggled in traditional environments but discovered that when I'm focused on something I love, like programming I don't stop until I master it.</p>
+        <p>Since late 2024, I've been channeling that energy into self-taught web development, cybersecurity, and software engineering. My portfolio is a reflection of that growth, and a signal of where I’m going next.</p>
+    </section>
 
-    <main> <!-- Main Content -->
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello and welcome to my site. I am a seven-year warehouse veteran transitioning into the tech industry. I designed this site to showcase my passion for programming, software development, web design, AI, and cybersecurity.</p>
+    <!--FEATURED PROJECT-->
+    <section id="projects" class="scroll-section">
+        <h2>Featured Project: Portfolio Website</h2>
+        <img src="IMAGE SOURCE" alt="screenshot of my portfolio website">
+        <p>This site was built using HTML, CSS, and JavaScript. It features a custom layout, responsive design, and a nod to retro computing with a clean, modern twist. It’s not just a portfolio, it’s proof of what I can build from the ground up.</p>
+        <a href="#projects" class="cta-button">Explore All Projects</a>
+    </section>
 
-        <hr>
-
-        <section class="scroll-animation">
-            <h2>About Me</h2>
-            <p>I was diagnosed with ADHD at eight years old, which made school incredibly difficult for me. I remember constantly questioning my teachers and their ability to offer meaningful advice about success. Eventually, I was expelled and only returned to take my exams, leaving with nothing but a single poor grade.</p>
-            <p>After school, I briefly attended college, earning a Level 2 IT User Diploma. From the age of 17 until late 2024, I worked in warehouses and factories. Due to ADHD and the social challenges it has presented in adulthood, I struggled to hold down a job for long periods. However, I’ve learned to harness my ADHD alongside my interests. I have an almost obsessive ability to focus on developing the skills needed to bring my passions to life—leading to projects like this website and many more.</p>
-            <a href="about.html" class="button page-link">Learn More</a>
-        </section>
-
-        <hr>
-
-        <section class="scroll-animation">
-            <h2>Featured Project: Portfolio Website</h2>
-            <img src="assets/Portfolio-OS.png" alt="Portfolio Website Screenshot" style="width:450px; height:auto;">
-            <p>This website showcases my skills in web development, design, and content creation. Built using HTML, CSS, and JavaScript, it features a responsive design, interactive elements, and a retro computing aesthetic inspired by TempleOS. It serves as a platform to display my projects, share my journey into tech, and connect with potential employers and collaborators. It reflects my commitment to continuous learning and my passion for creating functional and visually appealing web applications.</p>
-            <a href="projects.html" class="button page-link">View Projects</a>
-        </section>
-
-        <hr>
-
-        <section class="scroll-animation">
-            <h2>Learning Resources</h2>
-            <div style="display: flex; justify-content: space-between;">
-                <div>
-                    <p>These are some of the resources I've used to learn and grow my skills. They are ALL FREE:</p>
-                    <hr>
-                    <ul>
-                        <li><a class="page-link" href="https://skillsbuild.org/" target="_blank">IBM SkillsBuild</a> - Offers a variety of free courses and certifications in tech fields.</li>
-                        <li><a class="page-link" href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a> - A great platform for learning web development and earning certifications for free.</li>
-                        <li><a class="page-link" href="https://www.codecademy.com/" target="_blank">Codecademy</a> - An interactive platform for learning coding and web development with free courses.</li>
-                        <li><a class="page-link" href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> - Comprehensive documentation and learning resources for web development.</li>
-                        <li><a class="page-link" href="https://www.khanacademy.org/" target="_blank">Khan Academy</a> - Offers free courses in computer programming and other subjects.</li>
-                        <li><a class="page-link" href="https://www.edx.org/" target="_blank">edX</a> - Provides free courses from top universities in various tech fields.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>YouTube Channels</h3>
-                    <ul>
-                        <li><a href="https://www.youtube.com/c/NetworkChuck" target="_blank" class="page-link">Network Chuck</a> - Covers networking, cybersecurity, and IT topics.</li>
-                        <li><a href="https://www.youtube.com/c/BroCodez" target="_blank" class="page-link">BroCode</a> - Offers tutorials on programming and software development.</li>
-                        <li><a href="https://www.youtube.com/c/Freecodecamp" target="_blank" class="page-link">FreeCodeCamp</a> - Provides tutorials and courses on web development and programming.</li>
-                        <li><a href="https://www.youtube.com/c/TheNetNinja" target="_blank" class="page-link">The Net Ninja</a> - Offers tutorials on web development, JavaScript, and more.</li>
-                        <li><a href="https://www.youtube.com/c/TraversyMedia" target="_blank" class="page-link">Traversy Media</a> - Covers web development, programming, and tech tutorials.</li>
-                        <li><a href="https://www.youtube.com/c/Academind" target="_blank" class="page-link">Academind</a> - Provides in-depth tutorials on web development and programming.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="scroll-animation">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn and GitHub. I am actively seeking any work related to entry-level IT roles/contracts.</p>
-            <a href="contact.html" class="button page-link">Get in Touch</a>
-        </section>
-        
-        <div id="desktop-specific-content" class="desktop-content">
-            <!-- Desktop content goes here -->
-        </div>
-
-        <div id="mobile-specific-content" class="mobile-content">
-            <!-- Mobile content goes here -->
-        </div>
-        <div id="clock" class="clock"></div> <!-- Live clock -->
-        <div id="widgets" class="widgets">
-            <div id="weather" class="widget">Weather: Loading...</div>
-            <div id="news" class="widget">News: Loading...</div>
-        </div>
-    </main>
-
-    <footer> <!-- Footer -->
-        <p>&copy; 2025 PortfolioOS. All rights reserved.</p>
-    </footer>
-
+    <!--RESOURCES SECTION-->
+    <section id="resources" class="scroll-section">
+        <h2>Learning Resources</h2>
+        <p>Here are some of the free tools and platforms that helped me grow as a developer:</p>
+        <ul>
+          <li><a href="https://skillsbuild.org/" target="_blank">IBM SkillsBuild</a></li>
+          <li><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
+          <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a></li>
+          <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+          <li><a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a></li>
+          <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+        </ul>
+      
+        <h3>YouTube Channels</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/c/NetworkChuck" target="_blank">Network Chuck</a></li>
+          <li><a href="https://www.youtube.com/c/BroCodez" target="_blank">BroCode</a></li>
+          <li><a href="https://www.youtube.com/c/Freecodecamp" target="_blank">FreeCodeCamp</a></li>
+          <li><a href="https://www.youtube.com/c/TheNetNinja" target="_blank">The Net Ninja</a></li>
+          <li><a href="https://www.youtube.com/c/TraversyMedia" target="_blank">Traversy Media</a></li>
+          <li><a href="https://www.youtube.com/c/Academind" target="_blank">Academind</a></li>
+        </ul>
+      </section>
+      <!--CONTACT SECTION-->
+            
 </body>
 </html>
 
