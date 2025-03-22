@@ -237,5 +237,9 @@
     .nav-links a:hover {
       background-color: rgba(0, 128, 128, 0.1);
     }
+    
+    img {
+      max-width: 300px;
+    }
   }
   
