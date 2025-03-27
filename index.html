@@ -143,9 +143,8 @@ I draw inspiration from TempleOS — not for its content, but for the sheer pers
         <hr>
       
         <h2>Random Thought</h2>
-        <blockquote>
-          “The worst thing a person can do, is to give up."  
-          <br>— <strong>Master Shi Heng Yi</strong>
+        <blockquote id="random-thought">
+        
         </blockquote>
       </section>
 
@@ -169,7 +168,7 @@ I draw inspiration from TempleOS — not for its content, but for the sheer pers
               </div>
               <div class="archive-version">
                 <img src="assets/current portfolio (desktop).png" alt="v2 Portfolio" style="width:450px; height: auto;">
-                <p><strong>v2 – Refined Aesthetic</strong><br>Modern, sleek and Professional.Meets industry standards more so than version 1.</p>
+                <p><strong>v2 – Refined Aesthetic</strong><br>Modern, sleek and Professional. Optimized for mobile.</p>
               </div>
             </div>
           </details>
@@ -323,6 +322,23 @@ I draw inspiration from TempleOS — not for its content, but for the sheer pers
   </footer>
 
   <script>
+  const quotes = [
+    `"Your that Bird looking at the monitor and your thinking 'I can figure this out' and hes okay even though he doesn't understand the world."<br>-<strong>Terry A. Davis</strong>`,
+    `"The worst thing a person can do, is to give up."<br><strong>Master Shi Heng Yi</strong>`,
+    `"We can forgive children for being afraid of the dark, the real tragedy is when men are afraid of the light."<br><strong>Franz Haartman</strong>`,
+    `"Despite everything, you persist, you create, you love and you fight for meaning in a universe that offers none. Thats the most beautiful thing of all."<br><strong>AI on Humaninty</strong>`,
+    `"I am the master of my life, i am the captain of my soul."<br><strong>William Ernest Henley</strong>`
+    ];
+    const quotesElement =
+    document.getElementById("random-thought");
+    function showRandomThought () {
+      const index = Math.floor(Math.random() *quotes.length);
+      quotesElement.innerHTML = quotes[index];
+    }
+    showRandomThought();
+    setInterval(showRandomThought, 10000);
+  
+  
     // Scroll reveal animation
     const scrollElements = document.querySelectorAll('.scroll-section');
   
