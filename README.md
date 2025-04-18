@@ -32,5 +32,5 @@ This project brought together everything I’d learned in the three previous bui
 
 ## Live Demo
 
-Try it here: [Pixel Art Editor (GitHub Pages)](https://sudo-j182.github.io/pixel-editor/)
+Try it here: [Portfolio Site (GitHub Pages)](https://sudo-j182.github.io/portfolio-site/)
 
