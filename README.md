@@ -29,3 +29,8 @@ This project brought together everything I’d learned in the three previous bui
 - Add a light/dark mode toggle
 - Convert the site into a Progressive Web App
 - Refactor into subroutines for better scalability
+
+## Live Demo
+
+Try it here: [Pixel Art Editor (GitHub Pages)](https://sudo-j182.github.io/pixel-editor/)
+
