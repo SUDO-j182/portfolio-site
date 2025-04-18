@@ -1,0 +1,258 @@
+/* ================================
+   CSS RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ================================
+   GLOBAL STYLES
+================================ */
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: #fdfdfd;
+  padding-top: 80px;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #0066ff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+/* ================================
+   REUSABLE SECTIONS / CONTAINERS
+================================ */
+.scroll-section {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1000px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+}
+
+
+/* ================================
+   NAVIGATION BAR
+================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 128, 128, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 128, 128, 0.2);
+}
+
+.nav-brand {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #00cccc;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  transform: scale(1.05);
+  color: #00ffff;
+}
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+
+/* ================================
+   PROJECT CARD HOVER EFFECT
+================================ */
+.project:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 150, 136, 0.25);
+  transition: all 0.3s ease;
+}
+
+
+/* ================================
+   CONTACT FORM STYLING
+================================ */
+.styled-form input,
+.styled-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #000;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-form input::placeholder,
+.styled-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 2px #009688;
+}
+
+
+/* ================================
+   CALL TO ACTION BUTTON
+================================ */
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0ff;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+/* ================================
+   SCROLLBAR STYLING
+================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #009688;
+  border-radius: 10px;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .nav-brand {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links a {
+    padding: 0.75rem 0.75rem;
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(0, 128, 128, 0.1);
+  }
+
+  img {
+    max-width: 300px;
+  }
+}
+
+
+/* ================================
+   RANDOM QUOTES BLOCK
+================================ */
+#random-thought {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  color: darkcyan;
+}
+
+.fade-out {
+  opacity: 0;
+}
