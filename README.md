@@ -20,7 +20,9 @@ The goal was to create a clean, responsive site that acts as a central hub for m
 
 ## Why This Project Matters
 
-This project brought together everything I’d learned in the three previous builds. It gave me the chance to think about layout across multiple pages, apply consistent design principles, and structure content in a way that feels intuitive to users. It also helped me get more comfortable with styling and visual structure, both of which were important in preparing for public-facing developer roles.
+This project brought together everything I’d learned in the three previous builds. It gave me the chance to think about layout across multiple pages, apply consistent design principles, and structure content in a way that feels intuitive to users. It also helped me get more comfortable with styling and visual structure, both of which were important in preparing for public-facing developer roles. 
+
+Later the webiste evolved into a more responsive and mobile friendly variation, featuring a single page layout and modern design. 
 
 ## Future Improvements
 
