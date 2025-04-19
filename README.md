@@ -29,6 +29,7 @@ This project brought together everything I’d learned in the three previous bui
 - Add a light/dark mode toggle
 - Convert the site into a Progressive Web App
 - Refactor into subroutines for better scalability
+- Refactor HTML content 
 
 ## Live Demo
 
