@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Portfolio-OS
 
 A personal portfolio site inspired by retro operating systems. Built with HTML, CSS, and a bit of JavaScript to showcase projects, skills, and learning progress in a creative way.
@@ -65,4 +65,3 @@ Later the webiste evolved into a more responsive and mobile friendly variation, 
 
 Try it here: [Portfolio Site (GitHub Pages)](https://sudo-j182.github.io/portfolio-site/)
 
->>>>>>> 057ffab624624740ed9f50cead23db5989a82d6b
