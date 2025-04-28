@@ -11,26 +11,34 @@ html {
   scroll-behavior: smooth;
 }
 
-
 /* ================================
    GLOBAL STYLES
 ================================ */
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('PressStart2P-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: 'Press Start 2P', monospace;
   line-height: 1.6;
-  background-color: #fdfdfd;
+  background-color: darkcyan;
+  color: yellow;
   padding-top: 80px;
 }
 
 h1, h2, h3 {
   font-weight: 600;
   margin-bottom: 1rem;
+  color: yellow;
 }
 
 a {
-  color: #0066ff;
+  color: red;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -41,20 +49,19 @@ ul {
   padding-right: 0;
 }
 
-
 /* ================================
    REUSABLE SECTIONS / CONTAINERS
 ================================ */
 .scroll-section {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 79, 79, 0.5);
+  border: 1px solid red;
   border-radius: 20px;
   padding: 2rem;
   margin: 2rem auto;
   width: 90%;
   max-width: 1000px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -68,10 +75,9 @@ ul {
 
 .scroll-section:hover {
   transform: scale(1.02);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 12px 32px rgba(255, 0, 0, 0.4);
+  border: 1px solid yellow;
 }
-
 
 /* ================================
    NAVIGATION BAR
@@ -86,17 +92,17 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(0, 128, 128, 0.2);
+  background-color: rgba(0, 139, 139, 0.2);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-  color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 128, 128, 0.2);
+  border-bottom: 1px solid yellow;
+  color: yellow;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .nav-brand {
   font-weight: bold;
   font-size: 1.25rem;
-  color: #222;
+  color: yellow;
 }
 
 .nav-links {
@@ -105,7 +111,7 @@ ul {
 }
 
 .nav-links li a {
-  color: #ffffff;
+  color: yellow;
   text-decoration: none;
   font-weight: 500;
   position: relative;
@@ -119,28 +125,26 @@ ul {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background-color: #00cccc;
+  background-color: red;
   transition: width 0.3s ease;
 }
 
 .nav-links li a:hover {
   transform: scale(1.05);
-  color: #00ffff;
+  color: yellow;
 }
 .nav-links li a:hover::after {
   width: 100%;
 }
-
 
 /* ================================
    PROJECT CARD HOVER EFFECT
 ================================ */
 .project:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 150, 136, 0.25);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
   transition: all 0.3s ease;
 }
-
 
 /* ================================
    CONTACT FORM STYLING
@@ -150,10 +154,10 @@ ul {
   width: 100%;
   padding: 1rem;
   margin-bottom: 1.5rem;
-  border: none;
+  border: 1px solid yellow;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #000;
+  background-color: #003636;
+  color: yellow;
   font-size: 1rem;
   font-family: inherit;
   resize: vertical;
@@ -164,16 +168,15 @@ ul {
 
 .styled-form input::placeholder,
 .styled-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 0, 0.6);
 }
 
 .styled-form input:focus,
 .styled-form textarea:focus {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0 0 2px #009688;
+  background-color: #004f4f;
+  box-shadow: 0 0 0 2px red;
 }
-
 
 /* ================================
    CALL TO ACTION BUTTON
@@ -182,13 +185,18 @@ ul {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #0ff;
-  color: #000;
+  background-color: yellow;
+  color: darkcyan;
   font-weight: bold;
   text-decoration: none;
+  border: none;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
+.cta-button:hover {
+  background-color: #ffe100;
+}
 
 /* ================================
    SCROLLBAR STYLING
@@ -197,13 +205,12 @@ ul {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #1f1f1f;
+  background: #002b2b;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #009688;
+  background-color: yellow;
   border-radius: 10px;
 }
-
 
 /* ================================
    RESPONSIVE DESIGN
@@ -235,7 +242,7 @@ ul {
   }
 
   .nav-links a:hover {
-    background-color: rgba(0, 128, 128, 0.1);
+    background-color: rgba(0, 79, 79, 0.4);
   }
 
   img {
@@ -243,14 +250,13 @@ ul {
   }
 }
 
-
 /* ================================
    RANDOM QUOTES BLOCK
 ================================ */
 #random-thought {
   opacity: 1;
   transition: opacity 1s ease-in-out;
-  color: darkcyan;
+  color: yellow;
 }
 
 .fade-out {
