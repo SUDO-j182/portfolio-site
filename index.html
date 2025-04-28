@@ -76,7 +76,7 @@
           <img src="assets/current portfolio(mobile).png" alt="Portfolio Website Screenshot">
           <h3>Portfolio Website</h3>
           <p>Showcasing my projects and growth with a retro-inspired design.</p>
-          <a href="#portfolio-details" class="cta-button">Learn More</a>
+         <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
         <!-- Project 2 -->
@@ -84,7 +84,7 @@
           <img src="assets/current drawtool (desktop).png" alt="Pixel Drawing Tool Screenshot">
           <h3>Pixel Drawing Tool</h3>
           <p>Simple pixel art editor using a 16-color palette and JavaScript events.</p>
-          <a href="https://sudo-j182.github.io/simple-drawing-tool/" target="_blank" class="cta-button">Try It</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
         <!-- Project 3 -->
@@ -92,7 +92,7 @@
           <img src="assets/current passgen (mobile).png" alt="Password Generator Screenshot">
           <h3>Password Generator</h3>
           <p>Creates strong, random passwords with customizable options.</p>
-          <a href="https://sudo-j182.github.io/Password-Generator/" target="_blank" class="cta-button">Try It</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
         <!-- New: CV Website -->
@@ -100,7 +100,7 @@
           <img src="assets/cv layout.png" alt="CV Website Screenshot">
           <h3>CV Website</h3>
           <p>My first project that introduced me to web development.</p>
-          <a href="#cv-details" class="cta-button">Learn More</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
         <!-- New: Hash Generator -->
@@ -108,7 +108,7 @@
           <img src="assets/hash-generator.png" alt="Hash Generator Screenshot">
           <h3>Hash Generator</h3>
           <p>Generates secure SHA hashes; taught me cryptographic functions.</p>
-          <a href="#hashgen-details" class="cta-button">Learn More</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
         <!-- New: Hash Comparison Tool -->
@@ -116,7 +116,7 @@
           <img src="assets/hash-compare.png" alt="Hash Comparison Tool Screenshot">
           <h3>Hash Comparison Tool</h3>
           <p>Built to work alongside the Hash Generator for checking matches.</p>
-          <a href="#hashcompare-details" class="cta-button">Learn More</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>>
         </div>
     
         <!-- New: Simple Code Editor -->
@@ -124,7 +124,7 @@
           <img src="assets/code-editor.png" alt="Simple Code Editor Screenshot">
           <h3>Simple Code Editor</h3>
           <p>Accepts HTML, CSS, and JavaScript input and displays live previews.</p>
-          <a href="#codeeditor-details" class="cta-button">Learn More</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
         <!-- New: Task Manager -->
@@ -132,7 +132,7 @@
           <img src="assets/task-manager.png" alt="Task Manager Screenshot">
           <h3>Task Manager</h3>
           <p>My first full stack application, built in three days.</p>
-          <a href="#taskmanager-details" class="cta-button">Learn More</a>
+          <a href="javascript:void(0);" class="cta-button" onclick="openModal('Portfolio Website', 'Showcasing my projects and growth with a retro-inspired design.')">Learn More</a>
         </div>
     
       </div>
@@ -204,6 +204,14 @@
   <footer>
     <p>&copy; 2025 Jai Drakulic | PortfolioOS</p>
   </footer>
+  
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modal-tile">TITLE</h2>
+      <p id="modal-description">PROJECT DEETS GO HERE</p>
+    </div>
+  </div>
 
   <script src="main.js" defer></script>
 </body>

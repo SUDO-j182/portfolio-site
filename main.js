@@ -43,3 +43,31 @@ const scrollObserver = new IntersectionObserver((entries) => {
 
 // Start observing each scroll section
 scrollElements.forEach(el => scrollObserver.observe(el));
+
+// ================================
+// PROJECT MODAL HANDLING
+// ================================
+
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const closeButton = document.querySelector(".close-button");
+
+// Open Modal
+function openModal(title, description) {
+  modal.style.display = "block";
+  modalTitle.textContent = title;
+  modalDescription.textContent = description;
+}
+
+// Close Modal
+closeButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close modal if clicking outside the content
+window.addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
