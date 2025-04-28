@@ -138,7 +138,7 @@ ul {
 }
 
 /* ================================
-   PROJECT CARD HOVER EFFECT
+   PROJECT HOVER EFFECT (Original)
 ================================ */
 .project:hover {
   transform: scale(1.02);
@@ -213,6 +213,68 @@ ul {
 }
 
 /* ================================
+   RANDOM QUOTES BLOCK
+================================ */
+#random-thought {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  color: yellow;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* ================================
+   PROJECT GRID & PROJECT CARDS
+================================ */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: rgba(0, 79, 79, 0.5);
+  border: 1px solid red;
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  max-height: 250px; /* 🛠️ LIMIT how tall images can be */
+  object-fit: cover; /* 🛠️ crops nicely without squashing */
+}
+
+.project-card h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: yellow;
+}
+
+.project-card p {
+  margin-bottom: 1rem;
+  color: yellow;
+}
+
+/* ================================
    RESPONSIVE DESIGN
 ================================ */
 @media (max-width: 768px) {
@@ -248,17 +310,4 @@ ul {
   img {
     max-width: 300px;
   }
-}
-
-/* ================================
-   RANDOM QUOTES BLOCK
-================================ */
-#random-thought {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-  color: yellow;
-}
-
-.fade-out {
-  opacity: 0;
 }
