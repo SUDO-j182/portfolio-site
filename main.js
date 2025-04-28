@@ -1,4 +1,8 @@
-// Define an array of motivational quotes with attributions
+// ================================
+// QUOTES LOGIC
+// ================================
+
+// Define quotes array
 const quotes = [
   `"You're that bird looking at the monitor and you're thinking 'I can figure this out' — and he's okay even though he doesn't understand the world."<br><strong>Terry A. Davis</strong>`,
   `"The worst thing a person can do, is to give up."<br><strong>Master Shi Heng Yi</strong>`,
@@ -7,67 +11,73 @@ const quotes = [
   `"I am the master of my fate. I am the captain of my soul."<br><strong>William Ernest Henley</strong>`
 ];
 
-// Get the element where quotes will be displayed
-const quotesElement = document.getElementById("random-thought");
+// Show Random Thought
+document.addEventListener('DOMContentLoaded', function() {
+  const quotesElement = document.getElementById("random-thought");
 
-// Function to display a random quote with fade transition
-function showRandomThought() {
-  quotesElement.classList.add("fade-out"); // Trigger fade-out CSS animation
+  function showRandomThought() {
+    if (quotesElement) {
+      quotesElement.classList.add("fade-out");
 
-  setTimeout(() => {
-    const index = Math.floor(Math.random() * quotes.length); // Select random index
-    quotesElement.innerHTML = quotes[index]; // Update content
-    quotesElement.classList.remove("fade-out"); // Remove fade-out after new content
-  }, 1000); // Delay matches fade-out duration
-}
-
-// Show initial quote immediately on page load
-showRandomThought();
-
-// Update quote every 7 seconds
-setInterval(showRandomThought, 7000);
-
-// Reveal scroll-based sections when they come into view
-const scrollElements = document.querySelectorAll('.scroll-section');
-
-const scrollObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible'); // Add reveal class
-      scrollObserver.unobserve(entry.target); // Stop observing after it's visible
+      setTimeout(() => {
+        const index = Math.floor(Math.random() * quotes.length);
+        quotesElement.innerHTML = quotes[index];
+        quotesElement.classList.remove("fade-out");
+      }, 1000);
     }
-  });
-}, {
-  threshold: 0.1 // 10 percent of the element must be visible to trigger
+  }
+
+  showRandomThought();
+  setInterval(showRandomThought, 7000);
 });
 
-// Start observing each scroll section
-scrollElements.forEach(el => scrollObserver.observe(el));
+// ================================
+// SCROLL REVEAL
+// ================================
+document.addEventListener('DOMContentLoaded', function() {
+  const scrollElements = document.querySelectorAll('.scroll-section');
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  scrollElements.forEach(el => scrollObserver.observe(el));
+});
 
 // ================================
 // PROJECT MODAL HANDLING
 // ================================
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById("projectModal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDescription = document.getElementById("modal-description");
+  const closeButton = document.querySelector(".close-button");
 
-const modal = document.getElementById("projectModal");
-const modalTitle = document.getElementById("modal-title");
-const modalDescription = document.getElementById("modal-description");
-const closeButton = document.querySelector(".close-button");
+  // Expose openModal to global window scope
+  window.openModal = function(title, description) {
+    if (modal && modalTitle && modalDescription) {
+      modal.style.display = "block";
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+    }
+  };
 
-// Open Modal
-function openModal(title, description) {
-  modal.style.display = "block";
-  modalTitle.textContent = title;
-  modalDescription.textContent = description;
-}
-
-// Close Modal
-closeButton.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// Close modal if clicking outside the content
-window.addEventListener("click", (event) => {
-  if (event.target == modal) {
+  // Close Modal
+  closeButton.addEventListener("click", () => {
     modal.style.display = "none";
-  }
+  });
+
+  // Close Modal by clicking outside
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 });
