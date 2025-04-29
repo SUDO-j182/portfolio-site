@@ -1,7 +1,6 @@
 // ================================
 // QUOTES LOGIC
 // ================================
-
 const quotes = [
   `"You're that bird looking at the monitor and you're thinking 'I can figure this out' — and he's okay even though he doesn't understand the world."<br><strong>Terry A. Davis</strong>`,
   `"The worst thing a person can do, is to give up."<br><strong>Master Shi Heng Yi</strong>`,
@@ -83,110 +82,146 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ================================
-// JOURNAL SYSTEM (CRUD)
+// JOURNAL SYSTEM (CRUD + LOCK)
 // ================================
 document.addEventListener('DOMContentLoaded', () => {
+  const journalSection = document.getElementById("journal");
   const titleInput = document.getElementById("entry-title");
   const bodyInput = document.getElementById("entry-body");
   const tagsInput = document.getElementById("entry-tags");
   const saveButton = document.getElementById("save-entry");
   const archiveContainer = document.getElementById("entry-archive");
-
   let editId = null;
 
-  function loadEntries() {
-    const saved = localStorage.getItem("journalEntries");
-    return saved ? JSON.parse(saved) : [];
-  }
+  // === LOCK OVERLAY ===
+  const lockOverlay = document.createElement('div');
+  lockOverlay.id = 'journal-lock';
+  lockOverlay.innerHTML = `
+    <input id="journal-pass" type="password" placeholder="Enter Access Key">
+    <button id="unlock-journal">Unlock</button>
+    <p style="margin-top:1rem; font-size:0.7rem;">Journal is protected</p>
+  `;
 
-  function saveEntries(entries) {
-    localStorage.setItem("journalEntries", JSON.stringify(entries));
-  }
+  if (journalSection) {
+    journalSection.style.position = "relative";
+    journalSection.appendChild(lockOverlay);
 
-  function renderEntries(entries) {
-    archiveContainer.innerHTML = "";
+    const hashCheck = "f483e43f8efd587e260be5b6014ed6ba7060101ba673abb3181421d4403c61a3577215b29c3ad595becd88d572d78ccf37d96b06b0bc38310bc5a16b552d22e7";
 
-    [...entries].reverse().forEach(entry => {
-      const details = document.createElement("details");
-      const summary = document.createElement("summary");
-      const content = document.createElement("p");
-      const actions = document.createElement("div");
+    async function sha512(input) {
+      const data = new TextEncoder().encode(input);
+      const hashBuffer = await crypto.subtle.digest("SHA-512", data);
+      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
-      summary.textContent = `[${entry.timestamp}] ${entry.title}`;
-      content.textContent = entry.body;
+    document.getElementById("unlock-journal").addEventListener("click", async () => {
+      const userInput = document.getElementById("journal-pass").value.trim();
+      const hashedInput = await sha512(userInput);
 
-      if (entry.tags && entry.tags.length) {
-        const tagBlock = document.createElement("div");
-        tagBlock.style.marginTop = "0.5rem";
-        tagBlock.innerHTML = entry.tags.map(t => `<span class='entry-tag'>#${t}</span>`).join(" ");
-        content.appendChild(tagBlock);
+      if (hashedInput === hashCheck) {
+        lockOverlay.remove();
+        initJournal();
+      } else {
+        alert("Incorrect access key.");
       }
-
-      actions.style.marginTop = "1rem";
-
-      const editBtn = document.createElement("button");
-      editBtn.textContent = "📝 Edit";
-      editBtn.className = "cta-button";
-      editBtn.style.marginRight = "1rem";
-      editBtn.onclick = () => {
-        titleInput.value = entry.title;
-        bodyInput.value = entry.body;
-        tagsInput.value = entry.tags.join(", ");
-        editId = entry.id;
-        saveButton.textContent = "Update Entry";
-      };
-
-      const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = "🗑️ Delete";
-      deleteBtn.className = "cta-button";
-      deleteBtn.onclick = () => {
-        const updated = loadEntries().filter(e => e.id !== entry.id);
-        saveEntries(updated);
-        renderEntries(updated);
-      };
-
-      actions.appendChild(editBtn);
-      actions.appendChild(deleteBtn);
-
-      details.appendChild(summary);
-      details.appendChild(content);
-      details.appendChild(actions);
-      archiveContainer.appendChild(details);
     });
   }
 
-  saveButton.addEventListener("click", () => {
-    const title = titleInput.value.trim();
-    const body = bodyInput.value.trim();
-    const tags = tagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
-    if (!title || !body) return;
-
-    let entries = loadEntries();
-
-    if (editId) {
-      entries = entries.map(e =>
-        e.id === editId ? { ...e, title, body, tags } : e
-      );
-      editId = null;
-      saveButton.textContent = "Save Entry";
-    } else {
-      const newEntry = {
-        id: Date.now(),
-        title,
-        body,
-        tags,
-        timestamp: new Date().toLocaleString()
-      };
-      entries.push(newEntry);
+  // === JOURNAL SYSTEM FUNCTIONS ===
+  function initJournal() {
+    function loadEntries() {
+      const saved = localStorage.getItem("journalEntries");
+      return saved ? JSON.parse(saved) : [];
     }
 
-    saveEntries(entries);
-    renderEntries(entries);
-    titleInput.value = "";
-    bodyInput.value = "";
-    tagsInput.value = "";
-  });
+    function saveEntries(entries) {
+      localStorage.setItem("journalEntries", JSON.stringify(entries));
+    }
 
-  renderEntries(loadEntries());
+    function renderEntries(entries) {
+      archiveContainer.innerHTML = "";
+
+      [...entries].reverse().forEach(entry => {
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        const content = document.createElement("p");
+        const actions = document.createElement("div");
+
+        summary.textContent = `[${entry.timestamp}] ${entry.title}`;
+        content.textContent = entry.body;
+
+        if (entry.tags && entry.tags.length) {
+          const tagBlock = document.createElement("div");
+          tagBlock.style.marginTop = "0.5rem";
+          tagBlock.innerHTML = entry.tags.map(t => `<span class='entry-tag'>#${t}</span>`).join(" ");
+          content.appendChild(tagBlock);
+        }
+
+        actions.style.marginTop = "1rem";
+
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "📝 Edit";
+        editBtn.className = "cta-button";
+        editBtn.style.marginRight = "1rem";
+        editBtn.onclick = () => {
+          titleInput.value = entry.title;
+          bodyInput.value = entry.body;
+          tagsInput.value = entry.tags.join(", ");
+          editId = entry.id;
+          saveButton.textContent = "Update Entry";
+        };
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "🗑️ Delete";
+        deleteBtn.className = "cta-button";
+        deleteBtn.onclick = () => {
+          const updated = loadEntries().filter(e => e.id !== entry.id);
+          saveEntries(updated);
+          renderEntries(updated);
+        };
+
+        actions.appendChild(editBtn);
+        actions.appendChild(deleteBtn);
+
+        details.appendChild(summary);
+        details.appendChild(content);
+        details.appendChild(actions);
+        archiveContainer.appendChild(details);
+      });
+    }
+
+    saveButton.addEventListener("click", () => {
+      const title = titleInput.value.trim();
+      const body = bodyInput.value.trim();
+      const tags = tagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
+      if (!title || !body) return;
+
+      let entries = loadEntries();
+
+      if (editId) {
+        entries = entries.map(e =>
+          e.id === editId ? { ...e, title, body, tags } : e
+        );
+        editId = null;
+        saveButton.textContent = "Save Entry";
+      } else {
+        const newEntry = {
+          id: Date.now(),
+          title,
+          body,
+          tags,
+          timestamp: new Date().toLocaleString()
+        };
+        entries.push(newEntry);
+      }
+
+      saveEntries(entries);
+      renderEntries(entries);
+      titleInput.value = "";
+      bodyInput.value = "";
+      tagsInput.value = "";
+    });
+
+    renderEntries(loadEntries());
+  }
 });
-
