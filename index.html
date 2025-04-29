@@ -21,7 +21,7 @@
 <body>
 
   <!--==============================
-      NAVIGATION BAR
+      NAVIGATION
   ==============================-->
   <header>
     <nav class="navbar">
@@ -30,14 +30,14 @@
         <li><a href="#intro">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#journal">Journal</a></li>
         <li><a href="#resources">Resources</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!--==============================
-      HERO SECTION
+      HERO 
   ==============================-->
   <main>
     <section id="intro" class="scroll-section">
@@ -51,7 +51,7 @@
     
 
     <!--==============================
-        ABOUT SECTION
+        ABOUT 
     ==============================-->
     <section id="about" class="scroll-section">
       <h2>About Me</h2>
@@ -65,7 +65,7 @@
     
 
     <!--==============================
-        PROJECTS SECTION
+        PROJECTS 
     ==============================-->
 <section id="projects" class="scroll-section">
   <h2>My Projects</h2>
@@ -213,10 +213,29 @@
 
   </div>
 </section>
+
+ <!--==============================
+        JOURNAL 
+    ==============================-->
+
+    <section id="journal" class="scroll-section">
+      <h2> My Philosophy</h2>
+    
+      <div class="journal-editor">
+        <input type="text" id="entry-title" placeholder="Title of Entry">
+        <input type="text" id="entry-tags" placeholder="Tags (comma separated)">
+        <textarea id="entry-body" rows="6" placeholder="Write Entry Here..."></textarea>
+        <button id="save-entry" class="cta-button">Save Entry</button>
+      </div>
+    
+      <h3>Archived Entries</h3>
+      <div id="entry-archive"></div>
+    </section>
+    
     
 
     <!--==============================
-        RESOURCES SECTION
+        RESOURCES 
     ==============================-->
     <section id="resources" class="scroll-section">
       <h2>Learning Resources</h2>
@@ -242,37 +261,6 @@
       </ul>
     </section>
 
-    <!--==============================
-        CONTACT SECTION
-    ==============================-->
-    <section id="contact" class="scroll-section">
-      <h2>Get in Touch</h2>
-      <p>If you'd like to connect, feel free to reach out through LinkedIn or GitHub.</p>
-
-      <div class="contact-methods">
-        <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/jai-drakulic-7a1230340/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jai-drakulic</a></p>
-
-        <h3>GitHub</h3>
-        <p><a href="https://github.com/SUDO-j182" target="_blank" rel="noopener noreferrer">github.com/SUDO-j182</a></p>
-      </div>
-
-      <h3>Send a Quick Message</h3>
-      <form action="https://formspree.io/f/{your-form-id}" method="POST" class="contact-form styled-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="cta-button">Send</button>
-      </form>
-    </section>
-
-
     <blockquote id="random-thought"></blockquote>
 
   </main>
@@ -281,7 +269,7 @@
         FOOTER
   ==============================-->
   <footer>
-    <p>&copy; 2025 Jai Drakulic | PortfolioOS</p>
+    <p>&copy; 2025 Jai Drakulic | Portfolio-OS</p>
   </footer>
   
   <div id="projectModal" class="modal">

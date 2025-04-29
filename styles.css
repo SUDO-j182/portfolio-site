@@ -23,7 +23,7 @@ html {
 body {
   font-family: 'Press Start 2P', monospace;
   line-height: 1.6;
-  background-color: darkcyan;
+  background-color: #005050;
   color: yellow;
   padding-top: 80px;
 }
@@ -53,7 +53,7 @@ ul {
    REUSABLE SECTIONS / CONTAINERS
 ================================ */
 .scroll-section {
-  background: rgba(0, 79, 79, 0.5);
+  background: #002222;
   border: 1px solid red;
   border-radius: 20px;
   padding: 2rem;
@@ -92,7 +92,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(0, 139, 139, 0.2);
+  background-color: rgba(0, 90, 90, 0.5);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid yellow;
   color: yellow;
@@ -273,6 +273,77 @@ ul {
   margin-bottom: 1rem;
   color: yellow;
 }
+
+/* ================================
+   REUSED FOR JOURNAL EDITOR
+================================ */
+.journal-editor input,
+.journal-editor textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid yellow;
+  border-radius: 8px;
+  background-color: #003636;
+  color: yellow;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', monospace;
+  resize: vertical;
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journal-editor input::placeholder,
+.journal-editor textarea::placeholder {
+  color: rgba(255, 255, 0, 0.6);
+}
+
+.journal-editor input:focus,
+.journal-editor textarea:focus {
+  outline: none;
+  background-color: #004f4f;
+  box-shadow: 0 0 0 2px red;
+}
+
+/* ================================
+   JOURNAL TAG DISPLAY
+================================ */
+.entry-tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(255, 255, 0, 0.15);
+  color: yellow;
+  border: 1px solid yellow;
+  border-radius: 6px;
+  font-size: 0.7rem;
+}
+
+/* ================================
+   JOURNAL SECTION LAYOUT
+================================ */
+.journal-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+details summary {
+  cursor: pointer;
+  color: red;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+details p {
+  margin-top: 0.5rem;
+  color: yellow;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
 
 /* ================================
    RESPONSIVE DESIGN
