@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     journalSection.style.position = "relative";
     journalSection.appendChild(lockOverlay);
 
-    const hashCheck = "f483e43f8efd587e260be5b6014ed6ba7060101ba673abb3181421d4403c61a3577215b29c3ad595becd88d572d78ccf37d96b06b0bc38310bc5a16b552d22e7";
+    const hashCheck = "9aca7151acec02e10ec3548f9313b81043bbbeebbbdb012547f4b193701e3326a07597b492f949bc84e3d3f650f1d23fcb93628d95d7903ff9f851a8d1aa28bc";
 
     async function sha512(input) {
       const data = new TextEncoder().encode(input);
