@@ -61,13 +61,20 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeButton = document.querySelector(".close-button");
 
   // Expose openModal to global window scope
-  window.openModal = function(title, description) {
+  window.openModal = function(title, description, timelineHTML = "") {
     if (modal && modalTitle && modalDescription) {
       modal.style.display = "block";
       modalTitle.textContent = title;
       modalDescription.textContent = description;
+      
+      // ⬇️ Add screenshot content if provided
+      const timeline = document.getElementById("modal-timeline");
+      if (timeline) {
+        timeline.innerHTML = timelineHTML;
+      }
     }
   };
+  
 
   // Close Modal
   closeButton.addEventListener("click", () => {
