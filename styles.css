@@ -446,3 +446,53 @@ details p {
   border-radius: 8px;
   margin-bottom: 0.5rem;
 }
+
+#journal-lock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid red;
+  border-radius: 12px;
+  z-index: 10;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  color: yellow;
+  box-shadow: 0 0 15px red;
+}
+
+#journal-lock input[type="password"] {
+  width: 80%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid yellow;
+  border-radius: 8px;
+  background-color: #003636;
+  color: yellow;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+#journal-lock input[type="password"]::placeholder {
+  color: rgba(255, 255, 0, 0.5);
+}
+
+#journal-lock button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-family: 'Press Start 2P', monospace;
+  background-color: yellow;
+  color: darkcyan;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#journal-lock button:hover {
+  background-color: #ffe100;
+}

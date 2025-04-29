@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lockOverlay = document.createElement('div');
   lockOverlay.id = 'journal-lock';
   lockOverlay.innerHTML = `
-    <input id="journal-pass" type="password" placeholder="Enter Access Key">
+    <input id="journal-pass" type="password" placeholder="Whats the Magic Word?">
     <button id="unlock-journal">Unlock</button>
     <p style="margin-top:1rem; font-size:0.7rem;">Journal is protected</p>
   `;
